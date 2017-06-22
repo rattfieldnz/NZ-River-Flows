@@ -1,0 +1,28 @@
+<html>
+
+<head>
+	<title>River Flow New Zealand</title>
+</head>
+
+<body>
+	<h1>River Flow New Zealand</h1>
+	<ul>
+		<li><a id="link" href="#">Get flow info</a></li>
+	</ul>
+	<script>
+		function appendZero(num){
+			if(num<10){
+				return "0" + num;
+			}
+			return num;
+		}
+		var d = new Date();
+		var year = d.getFullYear();
+		var month = d.getMonth() + 1;
+		var day = d.getDate();
+		var link = document.getElementById("link");
+		link.setAttribute("href", "http://data.orc.govt.nz/v1/sql/TEL_RIVF/?$filter=Date eq datetime'" +year+ "-" +appendZero(month)+ "-" +appendZero(day)+ "T00:00:00'&format=json");
+	</script>
+</body>
+
+</html>
