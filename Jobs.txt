@@ -1,0 +1,3 @@
+- Attatch CSS
+- Extract info from queried database
+- Find query that only returns most recent flow update
