@@ -2,25 +2,83 @@
 
 <head>
 	<title>River Flow New Zealand</title>
+	<style>
+      #map {
+        height: 100%;
+      }
+	  html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
 </head>
 
 <body>
 	<h1>River Flow New Zealand</h1>
 	
-	<div id="map" style="width:700px;height:810px">My map will go here</div>
+	<div id="map">My map will go here</div>
 	
 	<script>
-		function myMap() {
-			var mapOptions = {
-			center: new google.maps.LatLng(-41.1, 173.1),
-			zoom: 6,
-			mapTypeId: google.maps.MapTypeId.HYBRID
+		//Define Map Properties
+		function initMap() {
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 6,
+				center: {lat: -41.1, lng: 173.1}
+			});
+		setMarkers(map);
 		}
-	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-	}
-</script>
+		
+		//Set River Marker Possitions	
+		var rivers = [
+			["Upper Taieri", -45.649560, 170.276538, 1],
+			["Lower Taier", -45.792323, 170.309228, 2]
+		]
+		
+		//Add River Markers to Map
+		function setMarkers(map){
+			var image = {
+				url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+				size: new google.maps.Size(20, 32),
+				origin: new google.maps.Point(0, 0),
+				anchor: new google.maps.Point(0, 32)
+			};
+			
+			var shape = {
+				coords: [1, 1, 1, 20, 18, 20, 18, 1],
+				type: 'poly'
+			};
+			
+			for(var i = 0; i < rivers.length; i++){
+				var river = rivers[i];
+				var marker  = new google.maps.Marker({	
+					position: {lat: river[1], lng: river[2]},
+					map: map,
+					icon: image,
+					shape: shape,
+					title: river[0],
+					zIndex: river[3]
+				});
+			}
+		}
+	</script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqC6_sJ4AVFbyXAfXBLc9dcBzHqvqPPTk&callback=myMap"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqC6_sJ4AVFbyXAfXBLc9dcBzHqvqPPTk&callback=initMap"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<ul>
 		<li><a id="link" href="#">Get flow info</a></li>
