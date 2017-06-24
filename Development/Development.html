@@ -1,0 +1,45 @@
+<html>
+
+<head>
+	<title>River Flow New Zealand</title>
+</head>
+
+<body>
+	<h1>River Flow New Zealand</h1>
+	
+	<div id="map" style="width:700px;height:810px">My map will go here</div>
+	
+	<script>
+		function myMap() {
+			var mapOptions = {
+			center: new google.maps.LatLng(-41.1, 173.1),
+			zoom: 6,
+			mapTypeId: google.maps.MapTypeId.HYBRID
+		}
+	var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqC6_sJ4AVFbyXAfXBLc9dcBzHqvqPPTk&callback=myMap"></script>
+
+	<ul>
+		<li><a id="link" href="#">Get flow info</a></li>
+	</ul>
+	<script>
+		function appendZero(num){
+			if(num<10){
+				return "0" + num;
+			}
+			return num;
+		}
+		var d = new Date();
+		var year = d.getFullYear();
+		var month = d.getMonth() + 1;
+		var day = d.getDate();
+		var link = document.getElementById("link");
+		link.setAttribute("href", "http://data.orc.govt.nz/v1/sql/TEL_RIVF/?$filter=Date eq datetime'" +year+ "-" +appendZero(month)+ "-" +appendZero(day)+ "T00:00:00'&format=json");
+	</script>
+	
+</body>
+
+</html>
