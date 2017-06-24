@@ -15,8 +15,9 @@
 </head>
 
 <body>
-	<h1>River Flow New Zealand</h1>
-	
+
+	<!--Creates Interactive Map with Rivers Marked-->
+	<!---------------------------------------------->
 	<div id="map">My map will go here</div>
 	
 	<script>
@@ -24,21 +25,22 @@
 		function initMap() {
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 6,
-				center: {lat: -41.1, lng: 173.1}
+				center: {lat: -40.834541, lng: 173.473535}
 			});
 		setMarkers(map);
 		}
 		
-		//Set River Marker Possitions	
+		//Set River Marker Possitions - ADD RIVERS HERE!	
 		var rivers = [
-			["Upper Taieri", -45.649560, 170.276538, 1],
-			["Lower Taier", -45.792323, 170.309228, 2]
+			["Upper Taieri", -45.649560, 170.276538, 1, "green"],
+			["Lower Taieri", -45.792323, 170.309228, 2, "green"],
+			["Leith", -45.864321, 170.514365, 3, "red"],
+			["Tekapo Whitewater Course", -44.020199, 170.468593, 4, "green"]
 		]
 		
-		//Add River Markers to Map
+		//Add Interactive River Markers to Map
 		function setMarkers(map){
 			var image = {
-				url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
 				size: new google.maps.Size(20, 32),
 				origin: new google.maps.Point(0, 0),
 				anchor: new google.maps.Point(0, 32)
@@ -69,17 +71,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+	<!--Links to Otago Regional Council river flow data base. Fornat: JSON-->
+	<!---------------------------------------------------------------------->
 	<ul>
 		<li><a id="link" href="#">Get flow info</a></li>
 	</ul>
