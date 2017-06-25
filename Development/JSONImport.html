@@ -12,25 +12,46 @@
 		<script>
 			console.log("Begin");
 			
+			//Import from Local File
+			console.log("Importing JSON from local file...");
+			$.ajax({
+				url: 'test.json',
+				type: 'GET',
+				dataType: 'json',
+				success: function(data){
+					console.log("Local JSON File Imported Successfully");
+					var i = data.value.length;
+					console.log(data.value);
+					document.getElementById("localFile").innerHTML = data.value[i-1].ValueAsRecorded_m3s;
+				},
+				error: function(){
+					console.log("Error loading local JSON file");
+				}
+			});
+			
+			//Import from External URL
+			console.log("Importing JSON from External URL...");
 			$.ajax({
 				url: 'http://data.orc.govt.nz/v1/sql/TEL_RIVF',
 				type: 'GET',
-				crossDomain: true,
 				dataType: 'jsonp',
-				jsonpCallback:"callback",
-				async: false,
-				cache: false,
 				success: function(data){
-							console.log("working..");
-							console.log(data);
-						}
+					console.log("External JSON URL Imported Successfully");
+					var i = data.value.length;
+					console.log(data.responce);
+					document.getElementById("urlFile").innerHTML = data.value[i-1].ValueAsRecorded_m3s;
+				},
+				error: function(){
+					console.log("Error loading External URL JSON file");
+				}
 			});
 			
 		</script>
 	</head>
 	
 	<body>
-	
+		<p id="localFile"></p>
+		<p id="urlFile"></p>
 	</body>
 	
 </html>

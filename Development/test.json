@@ -1,0 +1,25 @@
+{
+  "odata.metadata":"http://data.orc.govt.nz/v1/sql/%24metadata#Model.DefaultContainer.TEL_RIVF",
+  "odata.count":"50000",
+  "value":[
+    {
+      "Site":"3 OClock Stream at Lambhill","Date":"2017-06-12T00:00:00","Time_NZST":"09:05","ValueAsRecorded_m3s":"0.904","DeviationFromMedian_m3s":null,"FlowAlert":"Not determined for this site"
+    },{
+      "Site":"3 OClock Stream at Lambhill","Date":"2017-06-12T00:00:00","Time_NZST":"09:10","ValueAsRecorded_m3s":"0.904","DeviationFromMedian_m3s":null,"FlowAlert":"Not determined for this site"
+    },{
+      "Site":"3 OClock Stream at Lambhill","Date":"2017-06-12T00:00:00","Time_NZST":"09:15","ValueAsRecorded_m3s":"0.898","DeviationFromMedian_m3s":null,"FlowAlert":"Not determined for this site"
+    },{
+      "Site":"3 OClock Stream at Lambhill","Date":"2017-06-12T00:00:00","Time_NZST":"09:20","ValueAsRecorded_m3s":"0.898","DeviationFromMedian_m3s":null,"FlowAlert":"Not determined for this site"
+    },{
+      "Site":"3 OClock Stream at Lambhill","Date":"2017-06-12T00:00:00","Time_NZST":"09:25","ValueAsRecorded_m3s":"0.898","DeviationFromMedian_m3s":null,"FlowAlert":"Not determined for this site"
+    },{
+      "Site":"3 OClock Stream at Lambhill","Date":"2017-06-12T00:00:00","Time_NZST":"09:30","ValueAsRecorded_m3s":"0.904","DeviationFromMedian_m3s":null,"FlowAlert":"Not determined for this site"
+    },{
+      "Site":"3 OClock Stream at Lambhill","Date":"2017-06-12T00:00:00","Time_NZST":"09:35","ValueAsRecorded_m3s":"0.904","DeviationFromMedian_m3s":null,"FlowAlert":"Not determined for this site"
+    },{
+      "Site":"3 OClock Stream at Lambhill","Date":"2017-06-12T00:00:00","Time_NZST":"09:40","ValueAsRecorded_m3s":"0.904","DeviationFromMedian_m3s":null,"FlowAlert":"Not determined for this site"
+    },{
+      "Site":"3 OClock Stream at Lambhill","Date":"2017-06-12T00:00:00","Time_NZST":"09:45","ValueAsRecorded_m3s":"0.898","DeviationFromMedian_m3s":null,"FlowAlert":"Not determined for this site"
+    }
+  ]
+}
