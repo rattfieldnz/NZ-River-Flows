@@ -50,7 +50,9 @@
 		document.getElementById("demo").innerHTML = myObj.name;
 		
 		//Import JSON file from url somehow. Still haven't figured it out
-		//URL: 'http://data.orc.govt.nz/v1/sql/TEL_RIVF/?$filter=Site%20eq%20%27Waipori%20at%20Berwick%27%20and%20Date%20eq%20datetime%272017-06-25T00:00:00%27&$select=Site,Date,Time_NZST,ValueAsRecorded_m3s&format=json' 
+		$getJSON('http://data.orc.govt.nz/v1/sql/TEL_RIVF/?$filter=Site%20eq%20%27Waipori%20at%20Berwick%27%20and%20Date%20eq%20datetime%272017-06-25T00:00:00%27&$select=Site,Date,Time_NZST,ValueAsRecorded_m3s', function(data){
+			document.getElementById("demo2").innerHTML = data.value[0].ValueAsRecorded_m3s;
+		});
 	</script>
 </body>
 
