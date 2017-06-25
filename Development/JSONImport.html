@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+
+<html>
+
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+	
+		<title>JQuery Practice</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
+		<script>
+			console.log("Begin");
+			
+			$.ajax({
+				url: 'http://data.orc.govt.nz/v1/sql/TEL_RIVF',
+				type: 'GET',
+				crossDomain: true,
+				dataType: 'jsonp',
+				jsonpCallback:"callback",
+				async: false,
+				cache: false,
+				success: function(data){
+							console.log("working..");
+							console.log(data);
+						}
+			});
+			
+		</script>
+	</head>
+	
+	<body>
+	
+	</body>
+	
+</html>

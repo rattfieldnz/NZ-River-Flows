@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>River Flow New Zealand</title>
+	<link rel="stylesheet" type="text/css" href="myStyle.css">
+	<script src="myScripts.js"></script>
+</head>
+
+<body>
+	<!--Creates Interactive Map with Rivers Marked-->
+	<div id="map">NZ River Flow Map</div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqC6_sJ4AVFbyXAfXBLc9dcBzHqvqPPTk&callback=initMap"></script>
+
+	<!--Links to Otago Regional Council river flow data base. Format: JSON-->
+	<a id="link" href="#" target="blank">Get flow info</a>
+	<p id="demo"></p>
+	<p id="demo2"></p>
+	<script>
+		//Queries Otago Region Council (ORC) database for current dates river flow info.
+		var d = new Date();
+		var year = d.getFullYear();
+		var month = d.getMonth() + 1;
+		var day = d.getDate();
+		var link = document.getElementById("link");
+		
+		//Currently ONLY opens todays Taieri info
+		link.setAttribute("href", "http://data.orc.govt.nz/v1/sql/TEL_RIVF/?$filter=" +
+			"Date eq datetime'" + year + "-" + appendZero(month) + "-" + appendZero(day) + "T00:00:00'" +
+			"and Site eq 'Taieri At Outram'" +
+			"&$select=Site,Time_NZST,ValueAsRecorded_m3s" +
+			"&format=json");
+
+		function appendZero(num){
+			if(num < 10){
+				return "0" + num;
+			}
+			return num;
+		}
+	</script>
+</body>
+
+</html>

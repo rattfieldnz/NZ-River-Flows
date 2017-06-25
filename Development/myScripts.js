@@ -1,6 +1,9 @@
 var greenMarker = 'http://maps.google.com/mapfiles/ms/icons/green.png'
 var redMarker = 'http://maps.google.com/mapfiles/ms/icons/red.png'
 var orangeMarker = 'http://maps.google.com/mapfiles/ms/icons/orange.png'
+
+//Add new rivers here:
+//"Run Name", lat, lon, zbuff, marker color var, 'link to rivers.org.nz'
 var rivers = [
 	["Upper Taieri", -45.649560, 170.276538, 1, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/sutton-to-hindon'],
 	["Lower Taieri", -45.792323, 170.309228, 2, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/taioma-to-outram'],
