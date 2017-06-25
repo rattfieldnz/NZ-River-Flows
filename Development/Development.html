@@ -14,11 +14,14 @@
 
 
 
-	<!--Links to Otago Regional Council river flow data base. Fornat: JSON-->
-	<!---------------------------------------------------------------------->
+	<!--Links to Otago Regional Council river flow data base. Format: JSON-->
+	<!---->
 	<ul>
 		<li><a id="link" href="#" target="blank">Get flow info</a></li>
 	</ul>
+	
+	<p id="demo"></p>
+	<p id="demo2"></p>
 	<script>
 		//Queries Otago Region Council (ORC) database for current dates river flow info.
 		var d = new Date();
@@ -26,20 +29,28 @@
 		var month = d.getMonth() + 1;
 		var day = d.getDate();
 		var link = document.getElementById("link");
-
 		
 		//Currently ONLY opens todays Taieri info
 		link.setAttribute("href", "http://data.orc.govt.nz/v1/sql/TEL_RIVF/?$filter=" +
-			"Date eq datetime'" +year+ "-" +appendZero(month)+ "-" +appendZero(day)+ "T00:00:00'" +
+			"Date eq datetime'" + year + "-" + appendZero(month) + "-" + appendZero(day) + "T00:00:00'" +
 			"and Site eq 'Taieri At Outram'" +
+			"&$select=Site,Time_NZST,ValueAsRecorded_m3s" +
 			"&format=json");
 
 		function appendZero(num){
-			if(num<10){
+			if(num < 10){
 				return "0" + num;
 			}
 			return num;
 		}
+		
+		//Example JSON output
+		var myJSON = '{ "name":"John", "age":31, "city":"New York" }';
+		var myObj = JSON.parse(myJSON);
+		document.getElementById("demo").innerHTML = myObj.name;
+		
+		//Import JSON file from url somehow. Still haven't figured it out
+		//URL: 'http://data.orc.govt.nz/v1/sql/TEL_RIVF/?$filter=Site%20eq%20%27Waipori%20at%20Berwick%27%20and%20Date%20eq%20datetime%272017-06-25T00:00:00%27&$select=Site,Date,Time_NZST,ValueAsRecorded_m3s&format=json' 
 	</script>
 </body>
 
