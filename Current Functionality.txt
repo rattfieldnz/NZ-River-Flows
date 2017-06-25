@@ -1,3 +1,0 @@
-- Simple hyperlink queries and opens Otago Regional Council database. Returns flow data for otago region for current date.
-- Shows map of NZ
-- Adds markers a a few example rivers
