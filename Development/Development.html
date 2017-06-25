@@ -2,16 +2,7 @@
 
 <head>
 	<title>River Flow New Zealand</title>
-	<style>
-      #map {
-        height: 100%;
-      }
-	  html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+	<link rel="stylesheet" type="text/css" href="myStyle.css">
 </head>
 
 <body>
@@ -30,21 +21,20 @@
 		setMarkers(map);
 		}
 		
+		var greenMarker = 'http://maps.google.com/mapfiles/ms/icons/green.png'
+		var redMarker = 'http://maps.google.com/mapfiles/ms/icons/red.png'
+		var orangeMarker = 'http://maps.google.com/mapfiles/ms/icons/orange.png'
+		
 		//Set River Marker Possitions - ADD RIVERS HERE!	
 		var rivers = [
-			["Upper Taieri", -45.649560, 170.276538, 1, "green"],
-			["Lower Taieri", -45.792323, 170.309228, 2, "green"],
-			["Leith", -45.864321, 170.514365, 3, "red"],
-			["Tekapo Whitewater Course", -44.020199, 170.468593, 4, "green"]
+			["Upper Taieri", -45.649560, 170.276538, 1, greenMarker],
+			["Lower Taieri", -45.792323, 170.309228, 2, greenMarker],
+			["Leith", -45.864321, 170.514365, 3, redMarker],
+			["Tekapo Whitewater Course", -44.020199, 170.468593, 4, greenMarker]
 		]
 		
 		//Add Interactive River Markers to Map
 		function setMarkers(map){
-			var image = {
-				size: new google.maps.Size(20, 32),
-				origin: new google.maps.Point(0, 0),
-				anchor: new google.maps.Point(0, 32)
-			};
 			
 			var shape = {
 				coords: [1, 1, 1, 20, 18, 20, 18, 1],
@@ -56,7 +46,7 @@
 				var marker  = new google.maps.Marker({	
 					position: {lat: river[1], lng: river[2]},
 					map: map,
-					icon: image,
+					icon: river[4],
 					shape: shape,
 					title: river[0],
 					zIndex: river[3]
@@ -66,7 +56,6 @@
 	</script>
 
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqC6_sJ4AVFbyXAfXBLc9dcBzHqvqPPTk&callback=initMap"></script>
-
 
 
 
