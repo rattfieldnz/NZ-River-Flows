@@ -2,10 +2,10 @@ var greenMarker = 'http://maps.google.com/mapfiles/ms/icons/green.png'
 var redMarker = 'http://maps.google.com/mapfiles/ms/icons/red.png'
 var orangeMarker = 'http://maps.google.com/mapfiles/ms/icons/orange.png'
 var rivers = [
-	["Upper Taieri", -45.649560, 170.276538, 1, greenMarker],
-	["Lower Taieri", -45.792323, 170.309228, 2, greenMarker],
-	["Leith", -45.864321, 170.514365, 3, redMarker],
-	["Tekapo Whitewater Course", -44.020199, 170.468593, 4, greenMarker]
+	["Upper Taieri", -45.649560, 170.276538, 1, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/sutton-to-hindon'],
+	["Lower Taieri", -45.792323, 170.309228, 2, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/taioma-to-outram'],
+	["Leith", -45.864321, 170.514365, 3, redMarker, 'http://rivers.org.nz/nz/otago/leith-stream/leith'],
+	["Tekapo Whitewater Course", -44.020199, 170.468593, 4, greenMarker, 'http://rivers.org.nz/nz/canterbury/tekapo/tekapo-whitewater-course']
 ]
 
 //Define Map Properties
@@ -33,7 +33,11 @@ function setMarkers(map){
 			icon: river[4],
 			shape: shape,
 			title: river[0],
-			zIndex: river[3]
+			zIndex: river[3],
+			url: river[5]
+		});
+		google.maps.event.addListener(marker, 'click', function() {
+			window.location.href = this.url;
 		});
 	}
 }

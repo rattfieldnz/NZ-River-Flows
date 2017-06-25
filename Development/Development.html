@@ -17,7 +17,7 @@
 	<!--Links to Otago Regional Council river flow data base. Fornat: JSON-->
 	<!---------------------------------------------------------------------->
 	<ul>
-		<li><a id="link" href="#">Get flow info</a></li>
+		<li><a id="link" href="#" target="blank">Get flow info</a></li>
 	</ul>
 	<script>
 		//Queries Otago Region Council (ORC) database for current dates river flow info.
@@ -27,7 +27,12 @@
 		var day = d.getDate();
 		var link = document.getElementById("link");
 
-		link.setAttribute("href", "http://data.orc.govt.nz/v1/sql/TEL_RIVF/?$filter=Date eq datetime'" +year+ "-" +appendZero(month)+ "-" +appendZero(day)+ "T00:00:00'&format=json");
+		
+		//Currently ONLY opens todays Taieri info
+		link.setAttribute("href", "http://data.orc.govt.nz/v1/sql/TEL_RIVF/?$filter=" +
+			"Date eq datetime'" +year+ "-" +appendZero(month)+ "-" +appendZero(day)+ "T00:00:00'" +
+			"and Site eq 'Taieri At Outram'" +
+			"&format=json");
 
 		function appendZero(num){
 			if(num<10){
