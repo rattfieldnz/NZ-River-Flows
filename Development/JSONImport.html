@@ -10,8 +10,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		
 		<script>
-			console.log("Begin");
-			
 			//Import from Local File
 			console.log("Importing JSON from local file...");
 			$.ajax({
@@ -21,28 +19,29 @@
 				success: function(data){
 					console.log("Local JSON File Imported Successfully");
 					var i = data.value.length;
-					console.log(data.value);
+					console.log(data.value[i-1]);
 					document.getElementById("localFile").innerHTML = data.value[i-1].ValueAsRecorded_m3s;
 				},
 				error: function(){
-					console.log("Error loading local JSON file");
+					console.log("Error importing local JSON file");
 				}
 			});
 			
-			//Import from External URL
+			//Import from External URL. Somehow...
 			console.log("Importing JSON from External URL...");
 			$.ajax({
 				url: 'http://data.orc.govt.nz/v1/sql/TEL_RIVF',
 				type: 'GET',
 				dataType: 'jsonp',
+				jsonp : 'callback',
 				success: function(data){
 					console.log("External JSON URL Imported Successfully");
 					var i = data.value.length;
-					console.log(data.responce);
+					console.log(data.value[i-1]);
 					document.getElementById("urlFile").innerHTML = data.value[i-1].ValueAsRecorded_m3s;
 				},
 				error: function(){
-					console.log("Error loading External URL JSON file");
+					console.log("Error importing JSON from external URL");
 				}
 			});
 			

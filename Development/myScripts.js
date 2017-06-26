@@ -28,7 +28,9 @@ var rivers = [
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 6,
-		center: {lat: -40.834541, lng: 173.473535}
+		center: {lat: -40.834541, lng: 173.473535},
+		draggableCursor: 'auto',
+		draggingCursor: 'crosshair'
 	});
 	setMarkers(map);
 }
@@ -54,7 +56,8 @@ function setMarkers(map){
 			url: river[5],
 		});
 		
-		//opens river tooltip on mouseover
+		
+		//opens marker tooltip on mouseover
 		var content = river[0];
 		var infowindow = new google.maps.InfoWindow();
 		google.maps.event.addListener(marker, 'mouseover', (function(marker ,content ,infowindow){ 
@@ -64,14 +67,14 @@ function setMarkers(map){
 			};
 		})(marker, content, infowindow));
 		
-		//closes river tooltip on mouseout
+		
+		//closes marker tooltip on mouseout
 		google.maps.event.addListener(marker, 'mouseout', (function(marker, infowindow){ 
 			return function() {
 				infowindow.close()
 			};
 		})(marker, infowindow));
 			
-		
 			
 		//hyperlink to rivers.org.nz on click
 		google.maps.event.addListener(marker, 'click', function() {
