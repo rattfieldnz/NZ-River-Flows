@@ -2,7 +2,7 @@ var greenMarker = 'http://maps.google.com/mapfiles/ms/icons/green.png'
 var redMarker = 'http://maps.google.com/mapfiles/ms/icons/red.png'
 var orangeMarker = 'http://maps.google.com/mapfiles/ms/icons/orange.png'
 
-//Add new rivers here:
+//ADD NEW RIVERS HERE.
 //"Run Name", lat, lon, zbuff, marker color var, 'link to rivers.org.nz'
 var rivers = [
 	["Upper Taieri", -45.649560, 170.276538, 1, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/sutton-to-hindon'],
@@ -20,7 +20,8 @@ var rivers = [
 	["Matukituki", -44.506098, 168.728064, 13, greenMarker, 'http://rivers.org.nz/nz/otago/matukituki/rob-roy-stream-to-raspberry-creek'],
 	["Nevis River", -45.079093, 169.023634, 14, redMarker, 'http://rivers.org.nz/nz/otago/nevis/nevis-crossing-to-kawarau-river'],
 	["Lower Shotover", -44.962026, 168.650360, 15, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/deep-creek-to-edith-cavell-bridge'],
-	["Middle Shotover", -44.879175, 168.676419, 16, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/macleods-to-skippers-bridge']
+	["Middle Shotover", -44.879175, 168.676419, 16, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/macleods-to-skippers-bridge'],
+	["Lower Waipori", -45.929381, 170.041661, 17, redMarker, 'http://rivers.org.nz/nz/otago/waipori']
 ]
 
 //Define Map Properties
@@ -41,29 +42,38 @@ function setMarkers(map){
 	};
 			
 	for(var i = 0; i < rivers.length; i++){
-		var river = rivers[i];
 		
+		//places markers
+		var river = rivers[i];
 		var marker  = new google.maps.Marker({	
 			position: {lat: river[1], lng: river[2]},
 			map: map,
 			icon: river[4],
 			shape: shape,
-			title: river[0],
 			zIndex: river[3],
 			url: river[5],
 		});
 		
+		//opens river tooltip on mouseover
 		var content = river[0];
 		var infowindow = new google.maps.InfoWindow();
-		
-		google.maps.event.addListener(marker, 'mouseover', (function(marker, content, infowindow){
+		google.maps.event.addListener(marker, 'mouseover', (function(marker ,content ,infowindow){ 
 			return function() {
 				infowindow.setContent(content);
 				infowindow.open(map, marker);
 			};
 		})(marker, content, infowindow));
+		
+		//closes river tooltip on mouseout
+		google.maps.event.addListener(marker, 'mouseout', (function(marker, infowindow){ 
+			return function() {
+				infowindow.close()
+			};
+		})(marker, infowindow));
 			
 		
+			
+		//hyperlink to rivers.org.nz on click
 		google.maps.event.addListener(marker, 'click', function() {
 			window.location.href = this.url;
 		});
