@@ -1,5 +1,0 @@
-- Attatch CSS
-- Extract info from queried database
-- Find query that only returns most recent flow update
-- Create Taieri 'zoom in' page
-- Create multiple icons, embed them into page
