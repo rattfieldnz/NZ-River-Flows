@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<title>River Flow New Zealand</title>
+	<link rel="stylesheet" type="text/css" href="myStyle.css">
+	<script src="myScripts.js"></script>
+</head>
+
+<body>
+
+	<p id="demo"></p>
+	<!--Creates Interactive Map with Rivers Marked-->
+	<div id="map">NZ River Flow Map</div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqC6_sJ4AVFbyXAfXBLc9dcBzHqvqPPTk&callback=initMap"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$.ajax({
+			url: 'test.json',
+			type: 'GET',
+			dataType: 'json',
+			success: function(data){
+				var i = data.value.length;
+				document.getElementById("demo").innerHTML = data.value[i-1].ValueAsRecorded_m3s;
+			},
+			error: function(){
+				console.log("Error");
+			}
+		});
+	</script>
+
+</body>
+
+</html>
