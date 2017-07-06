@@ -6,6 +6,10 @@
         margin: 0;
         padding: 0;
      }
+	 
+	body, input, button {
+		font-family: 'Roboto', sans-serif;
+	}
 
 	header {
 		width: 100%;
@@ -20,16 +24,22 @@
 	}
 	
 	header h1 {
-		width: 30%;
+		width: 18%;
 		float: left;
 		color: #fff;
 		font-weight: 400;
 		text-indent: 18px;
-		padding:5px 0 0 0;
+		padding: 5px 0 0 0;
 		
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
+	}
+	
+	header .flowIcon {
+		width: 4%;
+		fill: #fff;
+		padding: 0 5px 0 0;
 	}
 	
 	header input {
@@ -98,7 +108,7 @@
 	}
 	
 	header button svg .fill {
-			fill: #07889b;
+		fill: #07889b;
 	}
 
 	#map {
