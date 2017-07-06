@@ -1,4 +1,7 @@
 
+var alphabeticalRivers = [];
+renderRiverList();
+
 document.getElementById('item').addEventListener('keypress', function (e) {
 	var key = e.which || e.keyCode;
 	console.log(key);
@@ -12,11 +15,10 @@ document.getElementById('item').addEventListener('keypress', function (e) {
 		searchValue = searchValue.substring(0, searchValue.length - 2);
 	}
 	
-	if(searchValue.length > 0){
-		for(var i = 0; i < rivers.length; i++){
-			if(rivers[i][0].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
-				console.log(rivers[i][0]);
-			}
+	clearList();
+	for(var i = 0; i < rivers.length; i++){
+		if(rivers[i][0].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
+			addItemToList(rivers[i][0]);
 		}
 	}
 });
@@ -62,3 +64,25 @@ function zoomOnSearch(){
 		}
 	}
 };
+
+function renderRiverList() {
+	for(var i = 0; i < rivers.length; i++){
+		addItemToList(rivers[i][0]);
+	}
+}
+
+function addItemToList(river){
+	var list = document.getElementById('riverList');
+	
+	var item = document.createElement('li');
+	item.innerText = river;
+	
+	list.appendChild(item);
+}
+
+function clearList(){
+	var list = document.getElementById('riverList');
+	while(list.firstChild){
+		list.removeChild(list.firstChild);
+	}
+}

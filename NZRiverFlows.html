@@ -35,8 +35,14 @@
 	</header>
 
 	<!--Creates Interactive Map with Rivers Marked-->
-	<div id="map">NZ River Flow Map</div>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqC6_sJ4AVFbyXAfXBLc9dcBzHqvqPPTk&callback=initMap"></script>
+		<div id="mapContainer">
+			<div id="map">NZ River Flow Map</div>
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqC6_sJ4AVFbyXAfXBLc9dcBzHqvqPPTk&callback=initMap"></script>
+			
+			<ul id="riverList">
+				<!--Rivers Displayed on this list-->
+			</ul>
+		</div>
 	
 	<footer>
 		<ul class="horizontalList">

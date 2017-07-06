@@ -112,10 +112,25 @@
 	header button svg .fill {
 		fill: #07889b;
 	}
+	
+	#mapContainer {
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+	}
 
-	#map {
+	#mapContainer #map {
         height: 100%;
+		width: 69%;
+		float:left;
      }
+	 
+	 #mapContainer #riverList {
+		 height: 100%;
+		 width: 31%;
+		 float: right;
+		 padding: 100px 0 0 10px;
+	 }
 	 
 	footer {
 		width: 100%;
