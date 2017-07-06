@@ -2,8 +2,9 @@ var greenMarker = 'http://maps.google.com/mapfiles/ms/icons/green.png'
 var redMarker = 'http://maps.google.com/mapfiles/ms/icons/red.png'
 var orangeMarker = 'http://maps.google.com/mapfiles/ms/icons/orange.png'
 
-//ADD NEW RIVERS HERE.
-//"Run Name", lat, lon, zbuff, marker color var, 'link to rivers.org.nz'
+var searchIcon = '<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="446.25px" height="446.25px" viewBox="0 0 446.25 446.25" style="enable-background:new 0 0 446.25 446.25;" xml:space="preserve"><g><g id="search"><path d="M318.75,280.5h-20.4l-7.649-7.65c25.5-28.05,40.8-66.3,40.8-107.1C331.5,73.95,257.55,0,165.75,0S0,73.95,0,165.75 S73.95,331.5,165.75,331.5c40.8,0,79.05-15.3,107.1-40.8l7.65,7.649v20.4L408,446.25L446.25,408L318.75,280.5z M165.75,280.5 C102,280.5,51,229.5,51,165.75S102,51,165.75,51S280.5,102,280.5,165.75S229.5,280.5,165.75,280.5z"/></g></svg>'
+
+// River information
 var rivers = [
 	["Upper Taieri", -45.649560, 170.276538, 1, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/sutton-to-hindon'],
 	["Lower Taieri", -45.792323, 170.309228, 2, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/taioma-to-outram'],
@@ -24,7 +25,7 @@ var rivers = [
 	["Lower Waipori", -45.929381, 170.041661, 17, redMarker, 'http://rivers.org.nz/nz/otago/waipori']
 ]
 
-//Define Map Properties
+// Define Map Properties
 function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 6,
@@ -35,7 +36,7 @@ function initMap() {
 	setMarkers(map);
 }
 		
-//Add Interactive River Markers to Map
+// Add Interactive River Markers to Map
 function setMarkers(map){
 	
 	var shape = {
@@ -45,7 +46,7 @@ function setMarkers(map){
 			
 	for(var i = 0; i < rivers.length; i++){
 		
-		//places markers
+		// places markers
 		var river = rivers[i];
 		var marker  = new google.maps.Marker({	
 			position: {lat: river[1], lng: river[2]},
@@ -56,7 +57,7 @@ function setMarkers(map){
 			url: river[5],
 		});
 		
-		//opens marker tooltip on mouseover
+		// Opens marker tooltip on mouseover
 		var content = river[0];
 		var infowindow = new google.maps.InfoWindow();
 		google.maps.event.addListener(marker, 'mouseover', (function(marker ,content ,infowindow){ 
@@ -67,7 +68,7 @@ function setMarkers(map){
 		})(marker, content, infowindow));
 		
 		
-		//closes marker tooltip on mouseout
+		// Closes marker tooltip on mouseout
 		google.maps.event.addListener(marker, 'mouseout', (function(marker, infowindow){ 
 			return function() {
 				infowindow.close()
@@ -75,7 +76,7 @@ function setMarkers(map){
 		})(marker, infowindow));
 			
 			
-		//hyperlink to rivers.org.nz on click
+		// Hyperlink to rivers.org.nz on click
 		google.maps.event.addListener(marker, 'click', function() {
 			window.location.href = this.url;
 		});
