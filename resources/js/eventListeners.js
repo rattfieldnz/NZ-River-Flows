@@ -8,10 +8,15 @@ var searchValue = "";
 document.getElementById('item').addEventListener('keypress', function (e) {
 	var key = e.which || e.keyCode;
 	searchValue += String.fromCharCode(key);
+	if(key == 8){
+		searchValue = searchValue.substring(0, searchValue.length - 2);
+	}
 	
-	for(var i = 0; i < rivers.length; i++){
-		if(rivers[i][0].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
-			console.log(rivers[i][0]);
+	if(searchValue.length > 0){
+		for(var i = 0; i < rivers.length; i++){
+			if(rivers[i][0].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
+				console.log(rivers[i][0]);
+			}
 		}
 	}
 });
