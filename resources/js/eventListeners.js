@@ -1,10 +1,28 @@
+
+document.getElementById('item').addEventListener('keypress', function (e) {
+	var key = e.which || e.keyCode;
+	console.log(key);
+});
+
+var searchValue = "";
+document.getElementById('item').addEventListener('keypress', function (e) {
+	var key = e.which || e.keyCode;
+	searchValue += String.fromCharCode(key);
+	
+	for(var i = 0; i < rivers.length; i++){
+		if(rivers[i][0].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
+			console.log(rivers[i][0]);
+		}
+	}
+});
+
 document.getElementById('searchButton').addEventListener('click', function(){
 	zoomOnSearch();
 });
 
 document.getElementById('item').addEventListener('keypress', function (e) {
     var key = e.which || e.keyCode;
-    if (key === 13) {
+    if (key === 13) { // enter
       zoomOnSearch();
     }
 });
@@ -15,14 +33,6 @@ document.getElementById('titlePage').addEventListener('click', function(){
 
 document.getElementById('flowIcon').addEventListener('click', function(){
 	window.location.href = 'file:///C:/Users/Fergus/Documents/PaddleSoftware/Development/NZRiverFlows.html';
-});
-
-document.getElementById('ferg').addEventListener('click', function(){
-	window.location.href = 'https://github.com/fergusfrl';
-});
-
-document.getElementById('mexican').addEventListener('click', function(){
-	window.location.href = 'https://github.com/emcfadzean';
 });
 
 function zoomOnSearch(){
