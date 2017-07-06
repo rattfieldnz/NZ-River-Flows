@@ -17,6 +17,14 @@ document.getElementById('flowIcon').addEventListener('click', function(){
 	window.location.href = 'file:///C:/Users/Fergus/Documents/PaddleSoftware/Development/NZRiverFlows.html';
 });
 
+document.getElementById('ferg').addEventListener('click', function(){
+	window.location.href = 'https://github.com/fergusfrl';
+});
+
+document.getElementById('mexican').addEventListener('click', function(){
+	window.location.href = 'https://github.com/emcfadzean';
+});
+
 function zoomOnSearch(){
 	var searchValue = document.getElementById('item').value;
 	if(searchValue) {
