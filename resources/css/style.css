@@ -30,6 +30,7 @@
 		font-weight: 400;
 		text-indent: 18px;
 		padding: 5px 0 0 0;
+		cursor: pointer;
 		
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -40,6 +41,7 @@
 		width: 60px;
 		fill: #fff;
 		padding: 0 6px 0 0;
+		cursor: pointer;
 	}
 	
 	header input {

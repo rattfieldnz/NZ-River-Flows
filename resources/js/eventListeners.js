@@ -9,6 +9,14 @@ document.getElementById('item').addEventListener('keypress', function (e) {
     }
 });
 
+document.getElementById('titlePage').addEventListener('click', function(){
+	window.location.href = 'file:///C:/Users/Fergus/Documents/PaddleSoftware/Development/NZRiverFlows.html';
+});
+
+document.getElementById('flowIcon').addEventListener('click', function(){
+	window.location.href = 'file:///C:/Users/Fergus/Documents/PaddleSoftware/Development/NZRiverFlows.html';
+});
+
 function zoomOnSearch(){
 	var searchValue = document.getElementById('item').value;
 	if(searchValue) {
