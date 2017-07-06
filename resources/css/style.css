@@ -2,7 +2,7 @@
 
 	html, body, footer {
         height: 100%;
-		background-color: #edf0f1;
+		background-color: #d1e5e1;
         margin: 0;
         padding: 0;
      }
@@ -24,12 +24,13 @@
 	}
 	
 	header h1 {
-		width: 18%;
+		width: 250px;
 		float: left;
 		color: #fff;
 		font-weight: 400;
 		text-indent: 18px;
 		padding: 5px 0 0 0;
+		cursor: pointer;
 		
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -37,9 +38,10 @@
 	}
 	
 	header .flowIcon {
-		width: 4%;
+		width: 60px;
 		fill: #fff;
-		padding: 0 5px 0 0;
+		padding: 0 6px 0 0;
+		cursor: pointer;
 	}
 	
 	header input {
@@ -50,7 +52,7 @@
 		font-size: 16px;
 		font-weight: 400;
 		text-indent: 18px;
-		padding: 0 15px 0 0;
+		padding: 0 50px 0 0;
 		margin: 0 12px 0 0;
 		background: rgba(255, 255, 255, 0.2);
 		border-radius: 10px 25px 25px 10px;
@@ -120,4 +122,15 @@
 		height: 200px;
 		position: absolute;
 		z-index: 5;
+		padding: 
+	}
+	
+	footer ul {
+		font-size: 12px;
+		padding: 2% 20% 0 20%;
+	}
+	
+	footer ul a {
+		color: #blue;
+		text-decoration: none;
 	}

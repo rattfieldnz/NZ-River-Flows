@@ -40,9 +40,17 @@ function initMap() {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-			map.setCenter(pos);
-			map.setZoom(8);
+			zoom(pos, false);
 		});
+	}
+}
+
+function zoom(pos, fromSearch){
+	map.setCenter(pos)
+	if(fromSearch){
+		map.setZoom(12);
+	} else {
+		map.setZoom(8);
 	}
 }
 		
