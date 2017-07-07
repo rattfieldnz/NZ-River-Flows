@@ -1,7 +1,8 @@
 
+renderRiverList();
+
 document.getElementById('item').addEventListener('keypress', function (e) {
 	var key = e.which || e.keyCode;
-	console.log(key);
 });
 
 var searchValue = "";
@@ -12,11 +13,14 @@ document.getElementById('item').addEventListener('keypress', function (e) {
 		searchValue = searchValue.substring(0, searchValue.length - 2);
 	}
 	
-	if(searchValue.length > 0){
-		for(var i = 0; i < rivers.length; i++){
-			if(rivers[i][0].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
-				console.log(rivers[i][0]);
+	clearList();
+	for(var i = 0; i < rivers.length; i++){
+		if(rivers[i][0].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
+			var pos = {
+				lat: rivers[i][1],
+				lng: rivers[i][2]
 			}
+			addItemToList(rivers[i][0], pos);
 		}
 	}
 });
@@ -62,3 +66,37 @@ function zoomOnSearch(){
 		}
 	}
 };
+
+function renderRiverList() {
+	for(var i = 0; i < rivers.length; i++){
+		var pos = {
+			lat: rivers[i][1],
+			lng: rivers[i][2]
+		};
+		addItemToList(rivers[i][0], pos);
+	}
+}
+
+function addItemToList(river, pos){
+	var list = document.getElementById('riverList');
+	
+	var item = document.createElement('li');
+	item.innerText = river;
+	
+	item.addEventListener('click', function(){
+		zoom(pos, true);
+	});
+	item.addEventListener('mouseover', function(){
+		// info windows
+		addInfoWindow(pos, river);
+	});
+	
+	list.appendChild(item);
+}
+
+function clearList(){
+	var list = document.getElementById('riverList');
+	while(list.firstChild){
+		list.removeChild(list.firstChild);
+	}
+}
