@@ -1,10 +1,8 @@
 
 renderRiverList();
-var coordList = [];
 
 document.getElementById('item').addEventListener('keypress', function (e) {
 	var key = e.which || e.keyCode;
-	console.log(key);
 });
 
 var searchValue = "";
@@ -18,12 +16,11 @@ document.getElementById('item').addEventListener('keypress', function (e) {
 	clearList();
 	for(var i = 0; i < rivers.length; i++){
 		if(rivers[i][0].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
-			addItemToList(rivers[i][0]);
-			pos = {
+			var pos = {
 				lat: rivers[i][1],
 				lng: rivers[i][2]
-			};
-			console.log(pos);
+			}
+			addItemToList(rivers[i][0], pos);
 		}
 	}
 });
@@ -72,20 +69,26 @@ function zoomOnSearch(){
 
 function renderRiverList() {
 	for(var i = 0; i < rivers.length; i++){
-		addItemToList(rivers[i][0]);
 		var pos = {
 			lat: rivers[i][1],
 			lng: rivers[i][2]
 		};
-		//coordList.push(pos);
+		addItemToList(rivers[i][0], pos);
 	}
 }
 
-function addItemToList(river){
+function addItemToList(river, pos){
 	var list = document.getElementById('riverList');
 	
 	var item = document.createElement('li');
 	item.innerText = river;
+	
+	item.addEventListener('click', function(){
+		zoom(pos, true);
+	});
+	item.addEventListener('mouseover', function(){
+		// info windows
+	});
 	
 	list.appendChild(item);
 }
