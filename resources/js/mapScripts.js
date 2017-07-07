@@ -23,6 +23,8 @@ var rivers = [
 	["Lower Waipori", -45.929381, 170.041661, 17, redMarker, 'http://rivers.org.nz/nz/otago/waipori']
 ]
 
+rivers.sort();
+
 // Define Map Properties
 var map;
 function initMap() {

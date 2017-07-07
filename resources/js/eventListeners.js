@@ -1,6 +1,6 @@
 
-var alphabeticalRivers = [];
 renderRiverList();
+var coordList = [];
 
 document.getElementById('item').addEventListener('keypress', function (e) {
 	var key = e.which || e.keyCode;
@@ -19,6 +19,11 @@ document.getElementById('item').addEventListener('keypress', function (e) {
 	for(var i = 0; i < rivers.length; i++){
 		if(rivers[i][0].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
 			addItemToList(rivers[i][0]);
+			pos = {
+				lat: rivers[i][1],
+				lng: rivers[i][2]
+			};
+			console.log(pos);
 		}
 	}
 });
@@ -68,6 +73,11 @@ function zoomOnSearch(){
 function renderRiverList() {
 	for(var i = 0; i < rivers.length; i++){
 		addItemToList(rivers[i][0]);
+		var pos = {
+			lat: rivers[i][1],
+			lng: rivers[i][2]
+		};
+		//coordList.push(pos);
 	}
 }
 
