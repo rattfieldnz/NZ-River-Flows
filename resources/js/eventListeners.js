@@ -77,18 +77,26 @@ function renderRiverList() {
 	}
 }
 
-function addItemToList(river, pos){
+function addItemToList(river, pos, marker){
+	// Creates list
 	var list = document.getElementById('riverList');
 	
 	var item = document.createElement('li');
 	item.innerText = river;
 	
+	// Click list to zoom
 	item.addEventListener('click', function(){
 		zoom(pos, true);
 	});
+	
+	// Mouseover list to open infowindow
 	item.addEventListener('mouseover', function(){
-		// info windows
-		addInfoWindow(pos, river);
+		//console.log("in");
+	});
+	
+	// Mouseout of list to close infowindow
+	item.addEventListener('mouseout', function(){
+		//console.log("out");
 	});
 	
 	list.appendChild(item);

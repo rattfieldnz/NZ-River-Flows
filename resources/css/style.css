@@ -1,11 +1,30 @@
 @charset "UTF-8";
 
+	#container1 {
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+	}
+	#container2 {
+		position: absolute;
+		top: 0px;
+		bottom: 0px;
+		left: 0px;
+		right: -15px;
+		overflow: auto;
+	}
+
 	html, body, footer {
         height: 100%;
 		background-color: #d1e5e1;
         margin: 0;
         padding: 0;
      }
+	 
+	::-webkit-scrollbar { 
+		display: none; 
+	}
 	 
 	body, input, button {
 		font-family: 'Roboto', sans-serif;
@@ -132,8 +151,16 @@
 		 padding: 100px 0 0 20px;
 	 }
 	 
+	 #mapContainer nav #riverList {
+		height: 100%;
+		width: 31%;
+		overflow: hidden;
+		overflow-y: scroll;
+	 }
+	 
 	 #mapContainer #riverList li {
-		 padding:0 0 10px 0;
+		 margin: 0 0 20px 0;
+		 padding:5px 0 5px 0;
 		 cursor: pointer;
 	 }
 	 
