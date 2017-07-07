@@ -82,23 +82,30 @@ function setMarkers(map){
 		var infowindow = new google.maps.InfoWindow();
 		google.maps.event.addListener(marker, 'mouseover', (function(marker ,content ,infowindow){ 
 			return function() {
-				infowindow.setContent(content);
-				infowindow.open(map, marker);
+				//infowindow.setContent(content);
+				//infowindow.open(map, marker);
+				addInfoWindow(marker, content);
 			};
 		})(marker, content, infowindow));
-		
-		
-		// Closes marker tooltip on mouseout
-		google.maps.event.addListener(marker, 'mouseout', (function(marker, infowindow){ 
-			return function() {
-				infowindow.close()
-			};
-		})(marker, infowindow));
-			
-			
-		// Hyperlink to rivers.org.nz on click
-		google.maps.event.addListener(marker, 'click', function() {
-			window.location.href = this.url;
-		});
 	}
+}
+
+function addInfoWindow(marker, content){
+	
+	// Adds infowindow
+	var infowindow = new google.maps.InfoWindow();
+	infowindow.setContent(content);
+	infowindow.open(map, marker);
+	
+	// Closes Infowindow
+	google.maps.event.addListener(marker, 'mouseout', (function(marker, infowindow){ 
+		return function() {
+			infowindow.close()
+		};
+	})(marker, infowindow));
+	
+	// Hyperlink to rivers.org.nz on click
+	google.maps.event.addListener(marker, 'click', function() {
+		window.location.href = this.url;
+	});
 }

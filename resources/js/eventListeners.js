@@ -88,6 +88,7 @@ function addItemToList(river, pos){
 	});
 	item.addEventListener('mouseover', function(){
 		// info windows
+		addInfoWindow(pos, river);
 	});
 	
 	list.appendChild(item);
