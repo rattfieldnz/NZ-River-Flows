@@ -99,25 +99,36 @@ function addItemToList(river, pos, linkTo){
 	
 	// Click list to zoom
 	item.addEventListener('click', function(){
+		openInfoWindow(river, pos, true);
 		zoom(pos, true);
 	});
 	
 	// Mouseover list to open infowindow
 	item.addEventListener('mouseover', function(){
-		//console.log("in");
+		openInfoWindow(river, pos, false);
 	});
 	
-	// Mouseout of list to close infowindow
-	item.addEventListener('mouseout', function(){
-		//console.log("out");
-	});
-	
-	/*linkIcon.addEventListener('click', function(){
+	linkIcon.addEventListener('click', function(){
 		window.location.href = linkTo;
-	});*/
+	});
 	
 	item.appendChild(buttons);
 	list.appendChild(item);
+}
+
+function openInfoWindow(content, position, fromZoom){
+	var infowindow = new google.maps.InfoWindow();
+	infowindow.setContent(content);
+	infowindow.setPosition(position);
+	infowindow.open(map);
+	
+	if(!fromZoom){
+		document.getElementById('riverList').addEventListener('mouseout', (function(position, infowindow){ 
+			return function() {
+				infowindow.close()
+			};
+		})(position, infowindow));
+	}
 }
 
 function clearList(){
