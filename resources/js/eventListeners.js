@@ -7,7 +7,26 @@ document.getElementById('item').addEventListener('keypress', function (e) {
 	var key = e.which || e.keyCode;
 });
 
-function callme(field) {
+document.getElementById('searchButton').addEventListener('click', function(){
+	zoomOnSearch();
+});
+
+document.getElementById('item').addEventListener('keypress', function (e) {
+    var key = e.which || e.keyCode;
+    if (key === 13) {
+      zoomOnSearch();
+    }
+});
+
+document.getElementById('titlePage').addEventListener('click', function(){
+	location.reload();
+});
+
+document.getElementById('flowIcon').addEventListener('click', function(){
+	location.reload();
+});
+
+function searchList(field) {
 	console.log(field.value);
 	clearList();
 	
@@ -22,47 +41,6 @@ function callme(field) {
 		}
 	}
 }
-
-
-/*var searchValue = "";
-document.getElementById('item').addEventListener('keypress', function (e) {
-	var key = e.which || e.keyCode;
-	searchValue += String.fromCharCode(key);
-	if(key == 8){
-		searchValue = searchValue.substring(0, searchValue.length - 2);
-	}
-	
-	clearList();
-	for(var i = 0; i < rivers.length; i++){
-		if(rivers[i][0].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
-			var linkTo = rivers[i][5];
-			var pos = {
-				lat: rivers[i][1],
-				lng: rivers[i][2]
-			}
-			addItemToList(rivers[i][0], pos, linkTo);
-		}
-	}
-});*/
-
-document.getElementById('searchButton').addEventListener('click', function(){
-	zoomOnSearch();
-});
-
-document.getElementById('item').addEventListener('keypress', function (e) {
-    var key = e.which || e.keyCode;
-    if (key === 13) { // enter
-      zoomOnSearch();
-    }
-});
-
-document.getElementById('titlePage').addEventListener('click', function(){
-	window.location.href = 'file:///C:/Users/Fergus/Documents/PaddleSoftware/Development/NZRiverFlows.html';
-});
-
-document.getElementById('flowIcon').addEventListener('click', function(){
-	window.location.href = 'file:///C:/Users/Fergus/Documents/PaddleSoftware/Development/NZRiverFlows.html';
-});
 
 function zoomOnSearch(){
 	var searchValue = document.getElementById('item').value;
@@ -99,7 +77,7 @@ function renderRiverList() {
 }
 
 function addItemToList(river, pos, linkTo){
-	// Creates list
+	
 	var list = document.getElementById('riverList');
 	
 	var item = document.createElement('li');
@@ -114,13 +92,11 @@ function addItemToList(river, pos, linkTo){
 	
 	buttons.appendChild(linkIcon);
 	
-	// Click list to zoom
 	item.addEventListener('click', function(){
 		openInfoWindow(river, pos, true);
 		zoom(pos, true);
 	});
 	
-	// Mouseover list to open infowindow
 	item.addEventListener('mouseover', function(){
 		openInfoWindow(river, pos, false);
 	});
