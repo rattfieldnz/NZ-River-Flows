@@ -68,7 +68,7 @@ function setMarkers(map){
 		
 		// places markers
 		var river = rivers[i];
-		var marker  = new google.maps.Marker({	
+		var marker = new google.maps.Marker({	
 			position: {lat: river[1], lng: river[2]},
 			map: map,
 			icon: river[4],
@@ -82,8 +82,6 @@ function setMarkers(map){
 		var infowindow = new google.maps.InfoWindow();
 		google.maps.event.addListener(marker, 'mouseover', (function(marker ,content ,infowindow){ 
 			return function() {
-				//infowindow.setContent(content);
-				//infowindow.open(map, marker);
 				addInfoWindow(marker, content);
 			};
 		})(marker, content, infowindow));
