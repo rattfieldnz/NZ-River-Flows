@@ -7,7 +7,24 @@ document.getElementById('item').addEventListener('keypress', function (e) {
 	var key = e.which || e.keyCode;
 });
 
-var searchValue = "";
+function callme(field) {
+	console.log(field.value);
+	clearList();
+	
+	for(var i = 0; i < rivers.length; i++){
+		if(rivers[i][0].toLowerCase().indexOf(field.value.toLowerCase()) != -1){
+			var linkTo = rivers[i][5];
+			var pos = {
+				lat: rivers[i][1],
+				lng: rivers[i][2]
+			}
+			addItemToList(rivers[i][0], pos, linkTo);
+		}
+	}
+}
+
+
+/*var searchValue = "";
 document.getElementById('item').addEventListener('keypress', function (e) {
 	var key = e.which || e.keyCode;
 	searchValue += String.fromCharCode(key);
@@ -26,7 +43,7 @@ document.getElementById('item').addEventListener('keypress', function (e) {
 			addItemToList(rivers[i][0], pos, linkTo);
 		}
 	}
-});
+});*/
 
 document.getElementById('searchButton').addEventListener('click', function(){
 	zoomOnSearch();
