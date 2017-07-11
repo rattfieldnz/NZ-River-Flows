@@ -2,26 +2,36 @@ var greenMarker = 'http://maps.google.com/mapfiles/ms/icons/green.png'
 var redMarker = 'http://maps.google.com/mapfiles/ms/icons/red.png'
 var orangeMarker = 'http://maps.google.com/mapfiles/ms/icons/orange.png'
 
-// River information
-var rivers = [
-	["Upper Taieri", -45.649560, 170.276538, 1, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/sutton-to-hindon'],
-	["Lower Taieri", -45.792323, 170.309228, 2, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/taioma-to-outram'],
-	["Leith", -45.864321, 170.514365, 3, redMarker, 'http://rivers.org.nz/nz/otago/leith-stream/leith'],
-	["Upper Hawea", -44.637029, 169.248425, 4, greenMarker, 'http://rivers.org.nz/nz/otago/hawea/control-gates-to-camp-hill-road'],
-	["Hawea Whitewater Park", -44.649563, 169.245387, 5, greenMarker, 'http://rivers.org.nz/nz/otago/hawea/hawea-whitewater-park'],
-	["Lower Hawea", -44.667902, 169.226727, 6, greenMarker, 'http://rivers.org.nz/nz/otago/hawea/camp-hill-road-to-albert-town'],
-	["Roaring Meg", -45.001828, 169.070665, 7, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/roaring-meg'],
-	["Dogleg", -45.017332, 168.952476, 8, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/dogleg'],
-	["Nevis Bluff", -45.036366, 169.002423, 9, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/nevis-bluff'],
-	["Citroen", -45.054224, 169.047425, 10, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/citro%C3%ABn'],
-	["Lee Stream", -45.797872, 170.227388, 11, redMarker, 'http://rivers.org.nz/nz/otago/lee-stream/lee-stream'],
-	["Manuherikia", -45.130542, 169.556783, 12, redMarker, 'http://rivers.org.nz/nz/otago/manuherikia/ophir-bridge-to-keddell-road'],
-	["Matukituki", -44.506098, 168.728064, 13, greenMarker, 'http://rivers.org.nz/nz/otago/matukituki/rob-roy-stream-to-raspberry-creek'],
-	["Nevis River", -45.079093, 169.023634, 14, redMarker, 'http://rivers.org.nz/nz/otago/nevis/nevis-crossing-to-kawarau-river'],
-	["Lower Shotover", -44.962026, 168.650360, 15, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/deep-creek-to-edith-cavell-bridge'],
-	["Middle Shotover", -44.879175, 168.676419, 16, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/macleods-to-skippers-bridge'],
-	["Lower Waipori", -45.929381, 170.041661, 17, redMarker, 'http://rivers.org.nz/nz/otago/waipori']
-]
+var rivers = [];
+
+function river(title, lat, lng, zIndex, marker, url, grade, river){
+		this.title = title;
+		this.lat = lat;
+		this.lng = lng;
+		this.zIndex = zIndex;
+		this.marker = marker;
+		this.url = url;
+		this.grade = grade;
+		this.river = river;
+		rivers.push(this);
+}
+
+var upperTaieri = new river("Upper Taieri", -45.649560, 170.276538, 1, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/sutton-to-hindon', 4, 'Taieri');
+var lowerTaieri = new river("Lower Taieri", -45.792323, 170.309228, 2, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/taioma-to-outram', 3, 'Taieri');
+var leith = new river("Leith", -45.864321, 170.514365, 3, redMarker, 'http://rivers.org.nz/nz/otago/leith-stream/leith', 3, 'Water of the Leith');
+var upperHawea = new river("Upper Hawea", -44.637029, 169.248425, 4, greenMarker, 'http://rivers.org.nz/nz/otago/hawea/control-gates-to-camp-hill-road', 2, 'Hawea');
+var lowerHawea = new river("Lower Hawea", -44.667902, 169.226727, 6, greenMarker, 'http://rivers.org.nz/nz/otago/hawea/camp-hill-road-to-albert-town', 2, 'Hawea');
+var roaringMeg = new river("Roaring Meg", -45.001828, 169.070665, 7, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/roaring-meg', 3, 'Kawarau');
+var dogleg = new river("Dogleg", -45.017332, 168.952476, 8, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/dogleg', 3, 'Kawarau');
+var nevisBluff = new river("Nevis Bluff", -45.036366, 169.002423, 9, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/nevis-bluff', 5, 'Kawarau');
+var citroen = new river("Citroen", -45.054224, 169.047425, 10, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/citro%C3%ABn', 4, 'Kawarau');
+var leeStream = new river("Lee Stream", -45.797872, 170.227388, 11, redMarker, 'http://rivers.org.nz/nz/otago/lee-stream/lee-stream', 4, 'Lee Stream');
+var manuherikia = new river("Manuherikia", -45.130542, 169.556783, 12, redMarker, 'http://rivers.org.nz/nz/otago/manuherikia/ophir-bridge-to-keddell-road', 4, 'Manuherikia');
+var matukituki = new river("Matukituki", -44.506098, 168.728064, 13, greenMarker, 'http://rivers.org.nz/nz/otago/matukituki/rob-roy-stream-to-raspberry-creek', 3, 'Matukituki');
+var nevisRiver = new river("Nevis River", -45.079093, 169.023634, 14, redMarker, 'http://rivers.org.nz/nz/otago/nevis/nevis-crossing-to-kawarau-river', 5, 'Nevis');
+var lowerShotover = new river("Lower Shotover", -44.962026, 168.650360, 15, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/deep-creek-to-edith-cavell-bridge', 4, 'Shotover');
+var middleShotover = new river("Middle Shotover", -44.879175, 168.676419, 16, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/macleods-to-skippers-bridge', 2, 'Shotover');
+var lowerWaipori = new river("Lower Waipori", -45.929381, 170.041661, 17, redMarker, 'http://rivers.org.nz/nz/otago/waipori', 3, 'Waipori');
 
 rivers.sort();
 
@@ -69,16 +79,16 @@ function setMarkers(map){
 		// places markers
 		var river = rivers[i];
 		var marker = new google.maps.Marker({	
-			position: {lat: river[1], lng: river[2]},
+			position: {lat: river.lat, lng: river.lng},
 			map: map,
-			icon: river[4],
+			icon: river.marker,
 			shape: shape,
-			zIndex: river[3],
-			url: river[5],
+			zIndex: river.zIndex,
+			url: river.url,
 		});
 		
 		// Opens marker tooltip on mouseover
-		var content = river[0];
+		var content = river.title;
 		var infowindow = new google.maps.InfoWindow();
 		google.maps.event.addListener(marker, 'mouseover', (function(marker ,content ,infowindow){ 
 			return function() {

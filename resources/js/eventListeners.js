@@ -31,13 +31,14 @@ function searchList(field) {
 	clearList();
 	
 	for(var i = 0; i < rivers.length; i++){
-		if(rivers[i][0].toLowerCase().indexOf(field.value.toLowerCase()) != -1){
-			var linkTo = rivers[i][5];
+		var river = rivers[i];
+		if(river.title.toLowerCase().indexOf(field.value.toLowerCase()) != -1){
+			var linkTo = river.url;
 			var pos = {
-				lat: rivers[i][1],
-				lng: rivers[i][2]
+				lat: river.lat,
+				lng: river.lng
 			}
-			addItemToList(rivers[i][0], pos, linkTo);
+			addItemToList(river.title, pos, linkTo);
 		}
 	}
 }
@@ -49,9 +50,10 @@ function zoomOnSearch(){
 		var lt = 0;
 		var ln = 0;
 		for(var i = 0; i < rivers.length; i++){
-			if(rivers[i][0].toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
-				lt = rivers[i][1];
-				ln = rivers[i][2];
+			var river = rivers[i];
+			if(river.title.toLowerCase().indexOf(searchValue.toLowerCase()) !== -1){
+				lt = river.lat;
+				ln = river.lng;
 				numberReturned++;
 			}
 		}
@@ -67,12 +69,13 @@ function zoomOnSearch(){
 
 function renderRiverList() {
 	for(var i = 0; i < rivers.length; i++){
-		var linkTo = rivers[i][5];
+		var river = rivers[i];
+		var linkTo = river.url;
 		var pos = {
-			lat: rivers[i][1],
-			lng: rivers[i][2]
+			lat: river.lat,
+			lng: river.lng
 		};
-		addItemToList(rivers[i][0], pos, linkTo);
+		addItemToList(river.title, pos, linkTo);
 	}
 }
 
