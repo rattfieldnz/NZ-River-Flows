@@ -33,7 +33,15 @@ var lowerShotover = new river("Lower Shotover", -44.962026, 168.650360, 15, gree
 var middleShotover = new river("Middle Shotover", -44.879175, 168.676419, 16, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/macleods-to-skippers-bridge', 2, 'Shotover');
 var lowerWaipori = new river("Lower Waipori", -45.929381, 170.041661, 17, redMarker, 'http://rivers.org.nz/nz/otago/waipori', 3, 'Waipori');
 
-rivers.sort();
+function compare(a,b) {
+  if (a.title < b.title)
+    return -1;
+  if (a.title > b.title)
+    return 1;
+  return 0;
+}
+
+rivers.sort(compare);
 
 // Define Map Properties
 var map;
