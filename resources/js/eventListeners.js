@@ -20,10 +20,12 @@ document.getElementById('item').addEventListener('keypress', function (e) {
 
 document.getElementById('titlePage').addEventListener('click', function(){
 	location.reload();
+	document.getElementById('item').value = "";
 });
 
 document.getElementById('flowIcon').addEventListener('click', function(){
 	location.reload();
+	document.getElementById('item').value = "";
 });
 
 function searchList(field) {
@@ -32,7 +34,7 @@ function searchList(field) {
 	
 	for(var i = 0; i < rivers.length; i++){
 		var river = rivers[i];
-		if(river.title.toLowerCase().indexOf(field.value.toLowerCase()) != -1){
+		if((river.title.toLowerCase().indexOf(field.value.toLowerCase()) != -1) || (river.river.toLowerCase().indexOf(field.value.toLowerCase()) != -1)){
 			var linkTo = river.url;
 			var pos = {
 				lat: river.lat,
