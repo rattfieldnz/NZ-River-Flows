@@ -110,7 +110,9 @@ function setMarkers(map){
 function addInfoWindow(marker, content){
 	
 	// Adds infowindow
-	var infowindow = new google.maps.InfoWindow();
+	var infowindow = new google.maps.InfoWindow({
+		disableAutoPan: true
+	});
 	infowindow.setContent(content);
 	infowindow.open(map, marker);
 	

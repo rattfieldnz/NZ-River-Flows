@@ -115,7 +115,9 @@ function addItemToList(river, pos, linkTo){
 }
 
 function openInfoWindow(content, position, fromZoom){
-	var infowindow = new google.maps.InfoWindow();
+	var infowindow = new google.maps.InfoWindow({
+		disableAutoPan: true
+	});
 	infowindow.setContent(content);
 	infowindow.setPosition(position);
 	infowindow.open(map);
