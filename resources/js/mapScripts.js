@@ -1,10 +1,9 @@
-var greenMarker = 'http://maps.google.com/mapfiles/ms/icons/green.png'
-var redMarker = 'http://maps.google.com/mapfiles/ms/icons/red.png'
-var orangeMarker = 'http://maps.google.com/mapfiles/ms/icons/orange.png'
+var greenMarker = 'resources/images/location-pin-green.png';
+var redMarker = 'resources/images/location-pin-red.png';
 
 var rivers = [];
 
-function river(title, lat, lng, zIndex, marker, url, grade, river, region, /*lowerBound, upperBound*/){
+function river(title, lat, lng, zIndex, marker, url, grade, river, region, /*lowerBound, upperBound, currentFlow*/){
 		this.title = title;
 		this.lat = lat;
 		this.lng = lng;
@@ -17,22 +16,22 @@ function river(title, lat, lng, zIndex, marker, url, grade, river, region, /*low
 		rivers.push(this);
 }
 
-var upperTaieri = new river("Upper Taieri", -45.649560, 170.276538, 1, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/sutton-to-hindon', 4, 'Taieri', 'Otago');
+var upperTaieri = new river("Upper Taieri", -45.649560, 170.276538, 2, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/sutton-to-hindon', 4, 'Taieri', 'Otago');
 var lowerTaieri = new river("Lower Taieri", -45.792323, 170.309228, 2, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/taioma-to-outram', 3, 'Taieri', 'Otago');
-var leith = new river("Leith", -45.864321, 170.514365, 3, redMarker, 'http://rivers.org.nz/nz/otago/leith-stream/leith', 3, 'Water of the Leith', 'Otago');
-var upperHawea = new river("Upper Hawea", -44.637029, 169.248425, 4, greenMarker, 'http://rivers.org.nz/nz/otago/hawea/control-gates-to-camp-hill-road', 2, 'Hawea', 'Otago');
-var lowerHawea = new river("Lower Hawea", -44.667902, 169.226727, 6, greenMarker, 'http://rivers.org.nz/nz/otago/hawea/camp-hill-road-to-albert-town', 2, 'Hawea', 'Otago');
-var roaringMeg = new river("Roaring Meg", -45.001828, 169.070665, 7, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/roaring-meg', 3, 'Kawarau', 'Otago');
-var dogleg = new river("Dogleg", -45.017332, 168.952476, 8, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/dogleg', 3, 'Kawarau', 'Otago');
-var nevisBluff = new river("Nevis Bluff", -45.036366, 169.002423, 9, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/nevis-bluff', 5, 'Kawarau', 'Otago');
-var citroen = new river("Citroen", -45.054224, 169.047425, 10, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/citro%C3%ABn', 4, 'Kawarau', 'Otago');
-var leeStream = new river("Lee Stream", -45.797872, 170.227388, 11, redMarker, 'http://rivers.org.nz/nz/otago/lee-stream/lee-stream', 4, 'Lee Stream', 'Otago');
-var manuherikia = new river("Manuherikia", -45.130542, 169.556783, 12, redMarker, 'http://rivers.org.nz/nz/otago/manuherikia/ophir-bridge-to-keddell-road', 4, 'Manuherikia', 'Otago');
-var matukituki = new river("Matukituki", -44.506098, 168.728064, 13, greenMarker, 'http://rivers.org.nz/nz/otago/matukituki/rob-roy-stream-to-raspberry-creek', 3, 'Matukituki', 'Otago');
-var nevisRiver = new river("Nevis River", -45.079093, 169.023634, 14, redMarker, 'http://rivers.org.nz/nz/otago/nevis/nevis-crossing-to-kawarau-river', 5, 'Nevis', 'Otago');
-var lowerShotover = new river("Lower Shotover", -44.962026, 168.650360, 15, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/deep-creek-to-edith-cavell-bridge', 4, 'Shotover', 'Otago');
-var middleShotover = new river("Middle Shotover", -44.879175, 168.676419, 16, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/macleods-to-skippers-bridge', 2, 'Shotover', 'Otago');
-var lowerWaipori = new river("Lower Waipori", -45.929381, 170.041661, 17, redMarker, 'http://rivers.org.nz/nz/otago/waipori', 3, 'Waipori', 'Otago');
+var leith = new river("Leith", -45.864321, 170.514365, 1, redMarker, 'http://rivers.org.nz/nz/otago/leith-stream/leith', 3, 'Water of the Leith', 'Otago');
+var upperHawea = new river("Upper Hawea", -44.637029, 169.248425, 1, redMarker, 'http://rivers.org.nz/nz/otago/hawea/control-gates-to-camp-hill-road', 2, 'Hawea', 'Otago');
+var lowerHawea = new river("Lower Hawea", -44.667902, 169.226727, 1, redMarker, 'http://rivers.org.nz/nz/otago/hawea/camp-hill-road-to-albert-town', 2, 'Hawea', 'Otago');
+var roaringMeg = new river("Roaring Meg", -45.001828, 169.070665, 2, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/roaring-meg', 3, 'Kawarau', 'Otago');
+var dogleg = new river("Dogleg", -45.017332, 168.952476, 2, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/dogleg', 3, 'Kawarau', 'Otago');
+var nevisBluff = new river("Nevis Bluff", -45.036366, 169.002423, 2, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/nevis-bluff', 5, 'Kawarau', 'Otago');
+var citroen = new river("Citroen", -45.054224, 169.047425, 2, greenMarker, 'http://rivers.org.nz/nz/otago/kawarau/citro%C3%ABn', 4, 'Kawarau', 'Otago');
+var leeStream = new river("Lee Stream", -45.797872, 170.227388, 1, redMarker, 'http://rivers.org.nz/nz/otago/lee-stream/lee-stream', 4, 'Lee Stream', 'Otago');
+var manuherikia = new river("Manuherikia", -45.130542, 169.556783, 1, redMarker, 'http://rivers.org.nz/nz/otago/manuherikia/ophir-bridge-to-keddell-road', 4, 'Manuherikia', 'Otago');
+var matukituki = new river("Matukituki", -44.506098, 168.728064, 2, greenMarker, 'http://rivers.org.nz/nz/otago/matukituki/rob-roy-stream-to-raspberry-creek', 3, 'Matukituki', 'Otago');
+var nevisRiver = new river("Nevis River", -45.079093, 169.023634, 1, redMarker, 'http://rivers.org.nz/nz/otago/nevis/nevis-crossing-to-kawarau-river', 5, 'Nevis', 'Otago');
+var lowerShotover = new river("Lower Shotover", -44.962026, 168.650360, 1, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/deep-creek-to-edith-cavell-bridge', 4, 'Shotover', 'Otago');
+var middleShotover = new river("Middle Shotover", -44.879175, 168.676419, 1, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/macleods-to-skippers-bridge', 2, 'Shotover', 'Otago');
+var lowerWaipori = new river("Lower Waipori", -45.929381, 170.041661, 1, redMarker, 'http://rivers.org.nz/nz/otago/waipori', 3, 'Waipori', 'Otago');
 
 function compare(a,b) {
   if (a.title < b.title)
@@ -51,7 +50,8 @@ function initMap() {
 		zoom: 6,
 		center: {lat: -40.834541, lng: 173.473535},
 		draggableCursor: 'auto',
-		draggingCursor: 'crosshair'
+		draggingCursor: 'crosshair',
+		streetViewControl: false
 	});
 	setMarkers(map);
 	
@@ -87,6 +87,14 @@ function setMarkers(map){
 		
 		// places markers
 		var river = rivers[i];
+		var zIndex = 0;
+		
+		if(river.marker == "greenMarker"){
+			zIndex = 1;
+		} else {
+			zIndex = 2;
+		}
+		
 		var marker = new google.maps.Marker({	
 			position: {lat: river.lat, lng: river.lng},
 			map: map,
@@ -97,7 +105,9 @@ function setMarkers(map){
 		});
 		
 		// Opens marker tooltip on mouseover
-		var content = river.title;
+		var content = "<h4>" + river.title + "</h4>";
+		content += "<p>Grade " + river.grade + "</p>";
+		
 		var infowindow = new google.maps.InfoWindow();
 		google.maps.event.addListener(marker, 'mouseover', (function(marker ,content ,infowindow){ 
 			return function() {
@@ -113,6 +123,7 @@ function addInfoWindow(marker, content){
 	var infowindow = new google.maps.InfoWindow({
 		disableAutoPan: true
 	});
+	
 	infowindow.setContent(content);
 	infowindow.open(map, marker);
 	

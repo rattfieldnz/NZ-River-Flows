@@ -79,11 +79,11 @@ function renderRiverList() {
 			lat: river.lat,
 			lng: river.lng
 		};
-		addItemToList(river.title, pos, linkTo);
+		addItemToList(river.title, river.grade, pos, linkTo);
 	}
 }
 
-function addItemToList(river, pos, linkTo){
+function addItemToList(river, grade, pos, linkTo){
 	
 	var list = document.getElementById('riverList');
 	
@@ -110,7 +110,10 @@ function addItemToList(river, pos, linkTo){
 	});
 	
 	item.addEventListener('mouseover', function(){
-		openInfoWindow(river, pos, false);
+		var content = "<h4>" + river + "</h4>";
+		content += "<p>Grade " + grade + "</p>";
+		
+		openInfoWindow(content, pos, false);
 	});
 	
 	linkIcon.addEventListener('click', function(){
@@ -151,11 +154,6 @@ function clearList(){
 $(document).ready(function() {
 	
    // Loads from external URL - NOT WORKING
-   //----------------------------------------------------- 
-   // PROBLEM - Returning json not jsonp. Needs to be jsonp for cross domain. Catch 22
-   // json = {"Hello":"World"}
-   // jsonp = callback({"Hello":"World"});
-   
    var url = 'http://data.orc.govt.nz/v1/sql/TEL_RIVF/?$filter=Site%20eq%20%27Taieri%20At%20Outram%27&format=json';
 
    
