@@ -287,35 +287,44 @@
 		height: 150px;
 		position: absolute;
 		z-index: 5;
-		padding: 10px 0 0 15%;
+		padding: 10px 20% 0 20%;
 		
 		-moz-box-sizing:border-box;
 		-webkit-box-sizing:border-box;
 		box-sizing:border-box;
 	}
 	
-	footer ul .horizontalList {
+	footer .above ul .horizontalList {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
 		overflow: hidden;
+		position: absolute;
 		
 		-moz-box-sizing:border-box;
 		-webkit-box-sizing:border-box;
 		box-sizing:border-box;
 	}
 	
-	footer ul .verticalList {
+	footer .above ul .verticalList {
 		float: left;
 		font-size: 12px;
-		padding:2% 5% 0 5%;
+		padding:2% 5% 0 0;
 		
 		-moz-box-sizing:border-box;
 		-webkit-box-sizing:border-box;
 		box-sizing:border-box;
 	}
 	
-	footer ul a {
+	footer .above ul a {
 		color: #blue;
 		text-decoration: none;
 	}
+	
+	footer .below {
+		font-size: 12px;
+		position: absolute;
+		float: left;
+		padding: 100px 0 10px 0;
+	}
+	
