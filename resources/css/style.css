@@ -14,6 +14,10 @@
 		left: 0px;
 		right: -15px;
 		overflow: auto;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 
 	html, body, footer {
@@ -21,6 +25,10 @@
 		background-color: #d1e5e1;
         margin: 0;
         padding: 0;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
      }
 	 
 	.noFill {
@@ -45,20 +53,26 @@
 		z-index: 5;
 		background: #07889b;
 		box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	header h1 {
-		width: 250px;
 		float: left;
 		color: #fff;
 		font-weight: 400;
 		text-indent: 18px;
-		padding: 5px 0 0 0;
+		padding: 5px 20px 0 0;
 		cursor: pointer;
 		
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	header .flowIcon {
@@ -66,6 +80,10 @@
 		fill: #fff;
 		padding: 0 6px 0 0;
 		cursor: pointer;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	header input {
@@ -87,6 +105,10 @@
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	header input::-webkit-input-placeholder {
@@ -122,6 +144,10 @@
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	header button svg {
@@ -141,12 +167,20 @@
 		height: 100%;
 		width: 100%;
 		overflow: hidden;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 
 	#mapContainer #map {
         height: 100%;
 		width: 69%;
 		float:left;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
     }
 	 
 	#mapContainer #riverList {
@@ -154,6 +188,10 @@
 		 width: 31%;
 		 float: right;
 		 padding: 130px 20px 0 20px;
+		 
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	 
 	#mapContainer nav #riverList {
@@ -164,6 +202,10 @@
 		position: absolute;
 		right: -17px;
 		bottom: 20px;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	 
 	#mapContainer #riverList li {
@@ -175,6 +217,10 @@
 		border-radius: 5px;
 		position: relative;
 		box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.1);
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	#mapContainer #riverList li .buttons {
@@ -183,6 +229,10 @@
 		position: absolute;
 		top: 0;
 		right: 0;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	#mapContainer #riverList li .buttons button {
@@ -202,6 +252,24 @@
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+	
+	#mapContainer #riverList li .buttons button svg .fill {
+		-webkit-transition: fill 0.2s ease;
+		-moz-transition: fill 0.2s ease;
+		transition: fill 0.2s ease;
+	}
+	
+	#mapContainer #riverList li .buttons button.remove svg .fill {
+		fill: #c0cecb;
+	}
+	
+	#mapContainer #riverList li .buttons button.remove:hover svg .fill {
+		fill: #e85656;
 	}
 	
 	footer {
@@ -209,7 +277,11 @@
 		height: 150px;
 		position: absolute;
 		z-index: 5;
-		padding: 0 10% 0 10%;
+		padding: 10px 0 0 15%;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	footer ul .horizontalList {
@@ -217,12 +289,20 @@
 		margin: 0;
 		padding: 0;
 		overflow: hidden;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	footer ul .verticalList {
 		float: left;
 		font-size: 12px;
-		padding:2% 12% 0 12%;
+		padding:2% 5% 0 5%;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	footer ul a {
