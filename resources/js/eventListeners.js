@@ -93,26 +93,26 @@ function addItemToList(river, grade, pos, linkTo){
 	var buttons = document.createElement('div');
 	buttons.classList.add('buttons');
 	
-	var starIcon = document.createElement('button');
-	starIcon.classList.add('starIcon');
-	starIcon.innerHTML = starSVG;
+	//var starIcon = document.createElement('button');
+	//starIcon.classList.add('starIcon');
+	//starIcon.innerHTML = starSVG;
 	
 	var linkIcon = document.createElement('button');
 	linkIcon.classList.add('linkIcon');
 	linkIcon.innerHTML = linkSVG;
 	
 	buttons.appendChild(linkIcon);
-	buttons.appendChild(starIcon);
+	//buttons.appendChild(starIcon);
+	
+	var content = "<h4>" + river + "</h4>";
+		content += "<p>Grade " + grade + "</p>";
 	
 	item.addEventListener('click', function(){
-		openInfoWindow(river, pos, true);
+		openInfoWindow(content, pos, true);
 		zoom(pos, true);
 	});
 	
 	item.addEventListener('mouseover', function(){
-		var content = "<h4>" + river + "</h4>";
-		content += "<p>Grade " + grade + "</p>";
-		
 		openInfoWindow(content, pos, false);
 	});
 	
