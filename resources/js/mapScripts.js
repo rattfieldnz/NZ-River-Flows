@@ -78,6 +78,9 @@ function zoom(pos, fromSearch){
 // Add Interactive River Markers to Map
 function setMarkers(map){
 	
+	var gZIndex = 50;
+	var rZIndex = 0;
+	
 	var shape = {
 		coords: [1, 1, 1, 20, 18, 20, 18, 1],
 		type: 'poly'
@@ -90,9 +93,11 @@ function setMarkers(map){
 		var zIndex = 0;
 		
 		if(river.marker == "greenMarker"){
-			zIndex = 1;
+			zIndex = gZIndex;
+			gZIndex++;
 		} else {
-			zIndex = 2;
+			zIndex = rZIndex;
+			rZIndex++;
 		}
 		
 		var marker = new google.maps.Marker({	
@@ -100,7 +105,7 @@ function setMarkers(map){
 			map: map,
 			icon: river.marker,
 			shape: shape,
-			zIndex: river.zIndex,
+			zIndex: zIndex,
 			url: river.url,
 		});
 		
@@ -111,13 +116,15 @@ function setMarkers(map){
 		var infowindow = new google.maps.InfoWindow();
 		google.maps.event.addListener(marker, 'mouseover', (function(marker ,content ,infowindow){ 
 			return function() {
-				addInfoWindow(marker, content);
+				var zIndex = marker.getZIndex();
+				marker.setZIndex(google.maps.Marker.MAX_ZINDEX + 1);
+				addInfoWindow(marker, content, zIndex);
 			};
 		})(marker, content, infowindow));
 	}
 }
 
-function addInfoWindow(marker, content){
+function addInfoWindow(marker, content, zIndex){
 	
 	// Adds infowindow
 	var infowindow = new google.maps.InfoWindow({
@@ -131,6 +138,7 @@ function addInfoWindow(marker, content){
 	google.maps.event.addListener(marker, 'mouseout', (function(marker, infowindow){ 
 		return function() {
 			infowindow.close()
+			marker.setZIndex(zIndex);
 		};
 	})(marker, infowindow));
 	
