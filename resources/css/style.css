@@ -192,6 +192,15 @@
 		-webkit-box-sizing:border-box;
 		box-sizing:border-box;
     }
+	
+	#legend {
+        padding: 10px;
+        margin: 50px 10px 10px 10px;
+    }
+	
+    #legend img {
+        vertical-align: middle;
+    }
 	 
 	#mapContainer #riverList {
 		 height: 100%;
@@ -327,4 +336,11 @@
 		float: left;
 		padding: 100px 0 10px 0;
 	}
+	footer .bottom {
+		font-size: 12px;
+		position: absolute;
+		float: left;
+		padding: 116px 0 10px 0;
+	}
+	
 	

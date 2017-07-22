@@ -35,14 +35,13 @@ function searchList(field) {
 	for(var i = 0; i < rivers.length; i++){
 		var searchValue = field.value.toLowerCase();
 		var river = rivers[i];
-		if((river.title.toLowerCase().indexOf(searchValue) != -1) || (river.river.toLowerCase().indexOf(searchValue) != -1) ||
-			(river.region.toLowerCase().indexOf(searchValue) != -1)){
+		if((river.title.toLowerCase().indexOf(searchValue) != -1) || (river.river.toLowerCase().indexOf(searchValue) != -1)){
 			var linkTo = river.url;
 			var pos = {
 				lat: river.lat,
 				lng: river.lng
 			}
-			addItemToList(river.title, pos, linkTo);
+			addItemToList(river.title, river.grade, pos, linkTo);
 		}
 	}
 }

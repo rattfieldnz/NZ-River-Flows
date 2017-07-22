@@ -1,5 +1,6 @@
 var greenMarker = 'resources/images/location-pin-green.png';
 var redMarker = 'resources/images/location-pin-red.png';
+var orangeMarker = 'resources/images/location-pin-orange.png';
 
 var rivers = [];
 
@@ -49,10 +50,25 @@ function initMap() {
 		zoom: 6,
 		center: {lat: -40.834541, lng: 173.473535},
 		draggableCursor: 'auto',
-		draggingCursor: 'crosshair',
 		streetViewControl: false
 	});
+	
 	setMarkers(map);
+	
+	var icons = {
+		flowing: {
+			name: 'Flowing',
+			icon: greenMarker
+		},
+		notFlowing: {
+			name: 'Not Flowing',
+			icon: redMarker
+		},
+		undetermined: {
+			name: 'Undetermined',
+			icon: orangeMarker
+		}
+	};
 	
 	if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -63,6 +79,18 @@ function initMap() {
 			zoom(pos, false);
 		});
 	}
+	
+	var legend = document.getElementById('legend');
+        for (var key in icons) {
+          var type = icons[key];
+          var name = type.name;
+          var icon = type.icon;
+          var div = document.createElement('div');
+          div.innerHTML = '<img src="' + icon + '"> ' + name;
+          legend.appendChild(div);
+        }
+
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
 }
 
 function zoom(pos, fromSearch){
