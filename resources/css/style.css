@@ -194,6 +194,15 @@
     }
 	
 	#legend {
+		font-family: 'Roboto', sans-serif;
+		font-size: 15px;
+		color: #333;
+		text-shadow:
+			-1px -1px 0 #fff,
+			1px -1px 0 #fff,
+			-1px 1px 0 #fff,
+			1px 1px 0 #fff;
+		
         padding: 10px;
         margin: 50px 10px 10px 10px;
     }
