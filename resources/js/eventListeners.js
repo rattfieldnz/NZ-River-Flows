@@ -4,14 +4,12 @@ var starSVG = '<svg version="1.1" id="Capa_2" xmlns="http://www.w3.org/2000/svg"
 
 renderRiverList();
 
-document.getElementById('item').addEventListener('keypress', function (e) {
-	var key = e.which || e.keyCode;
-});
-
+// Zoom into river on click
 document.getElementById('searchButton').addEventListener('click', function(){
 	zoomOnSearch();
 });
 
+// Search in 'enter'
 document.getElementById('item').addEventListener('keypress', function (e) {
     var key = e.which || e.keyCode;
     if (key === 13) {
@@ -19,16 +17,57 @@ document.getElementById('item').addEventListener('keypress', function (e) {
     }
 });
 
+// Reload page if title is clicked
 document.getElementById('titlePage').addEventListener('click', function(){
 	location.reload();
 	document.getElementById('item').value = "";
 });
 
+// Reload page if flow icon is clicked
 document.getElementById('flowIcon').addEventListener('click', function(){
 	location.reload();
 	document.getElementById('item').value = "";
 });
 
+checkBoxes();
+
+// Prints current checkbox values
+function checkBoxes(){
+	var boxes = document.getElementsByClassName('gradeBox');
+	for (var i = 0; i < boxes.length; i++){
+		boxes[i].addEventListener('click', function(){
+			console.log('CLICK!');
+			printBoxes(boxes);
+		});
+	}
+}
+
+var checkArray = [];
+function printBoxes(boxes){
+	for (var i = 0; i < boxes.length; i++){
+		console.log(boxes[i].value + ": " + boxes[i].checked);
+		if(boxes[i].checked){
+			console.log('check');
+			checkArray.push(boxes[i].value);
+		}
+	}
+	console.log(checkArray);
+	clearList();
+	
+	for (var i = 0; i < rivers.length; i++){
+		var river = rivers[i];
+		if (checkArray.indexOf(river.grade) >= 0){
+			var pos = {
+				lat: river.lat,
+				lng: river.lng
+			};
+			addItemToList(river.title, river.grade, pos, river.url);
+		}
+	}
+	checkArray = [];
+}
+
+// Re-renders list depending on search value
 function searchList(field) {
 	clearList();
 	
@@ -36,16 +75,16 @@ function searchList(field) {
 		var searchValue = field.value.toLowerCase();
 		var river = rivers[i];
 		if((river.title.toLowerCase().indexOf(searchValue) != -1) || (river.river.toLowerCase().indexOf(searchValue) != -1)){
-			var linkTo = river.url;
 			var pos = {
 				lat: river.lat,
 				lng: river.lng
 			}
-			addItemToList(river.title, river.grade, pos, linkTo);
+			addItemToList(river.title, river.grade, pos, river.url);
 		}
 	}
 }
 
+// Map zooms into coordinates of search value
 function zoomOnSearch(){
 	var searchValue = document.getElementById('item').value;
 	if(searchValue) {
@@ -70,6 +109,7 @@ function zoomOnSearch(){
 	}
 };
 
+// Renders river list
 function renderRiverList() {
 	for(var i = 0; i < rivers.length; i++){
 		var river = rivers[i];
@@ -82,6 +122,7 @@ function renderRiverList() {
 	}
 }
 
+// Adds items to list - includes event listeners for li items
 function addItemToList(river, grade, pos, linkTo){
 	
 	var list = document.getElementById('riverList');
@@ -125,6 +166,7 @@ function addItemToList(river, grade, pos, linkTo){
 	list.appendChild(item);
 }
 
+// Opens an infor window at coordinates
 function openInfoWindow(content, position, fromZoom){
 	var infowindow = new google.maps.InfoWindow({
 		disableAutoPan: true
@@ -142,6 +184,7 @@ function openInfoWindow(content, position, fromZoom){
 	}
 }
 
+// Removes all items from list
 function clearList(){
 	var list = document.getElementById('riverList');
 	while(list.firstChild){
