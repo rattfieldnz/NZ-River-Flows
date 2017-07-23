@@ -36,7 +36,6 @@ function checkBoxes(){
 	var boxes = document.getElementsByClassName('gradeBox');
 	for (var i = 0; i < boxes.length; i++){
 		boxes[i].addEventListener('click', function(){
-			console.log('CLICK!');
 			printBoxes(boxes);
 		});
 	}
@@ -45,18 +44,15 @@ function checkBoxes(){
 var checkArray = [];
 function printBoxes(boxes){
 	for (var i = 0; i < boxes.length; i++){
-		console.log(boxes[i].value + ": " + boxes[i].checked);
 		if(boxes[i].checked){
-			console.log('check');
 			checkArray.push(boxes[i].value);
 		}
 	}
-	console.log(checkArray);
 	clearList();
 	
 	for (var i = 0; i < rivers.length; i++){
 		var river = rivers[i];
-		if (checkArray.indexOf(river.grade) >= 0){
+		if (checkArray.indexOf(river.grade.toString()) >= 0){
 			var pos = {
 				lat: river.lat,
 				lng: river.lng

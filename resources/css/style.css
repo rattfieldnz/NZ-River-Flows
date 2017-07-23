@@ -50,7 +50,7 @@
 		padding: 15px;
 		top: 0;
 		left: 0;
-		z-index: 5;
+		z-index: 6;
 		background: #07889b;
 		box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
 		
@@ -167,11 +167,30 @@
 		height: 100%;
 		width: 100%;
 		overflow: hidden;
+		position: relative;
 		
 		-moz-box-sizing:border-box;
 		-webkit-box-sizing:border-box;
 		box-sizing:border-box;
 	}
+	
+	#floatingPanel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        padding-top: 50px;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+		text-shadow:
+			-1px -1px 0 #fff,
+			1px -1px 0 #fff,
+			-1px 1px 0 #fff,
+			1px 1px 0 #fff;
+		
+        line-height: 30px;
+		margin: 40px 0 0 35%;
+    }
 	
 	a[href^="http://maps.google.com/maps"]{display:none !important}
 	a[href^="https://maps.google.com/maps"]{display:none !important}
