@@ -20,7 +20,7 @@
 		box-sizing:border-box;
 	}
 
-	html, body, footer {
+	html, body {
         height: 100%;
 		background-color: #d1e5e1;
         margin: 0;
@@ -179,7 +179,7 @@
         top: 10px;
         left: 25%;
         z-index: 5;
-        padding-top: 50px;
+        padding-top: 60px;
         text-align: center;
         font-family: 'Roboto','sans-serif';
 		text-shadow:
@@ -189,7 +189,7 @@
 			1px 1px 0 #fff;
 		
         line-height: 30px;
-		margin: 40px 0 0 35%;
+		margin: 40px 0 0 37%;
     }
 	
 	a[href^="http://maps.google.com/maps"]{display:none !important}
@@ -325,6 +325,7 @@
 		position: absolute;
 		z-index: 5;
 		padding: 10px 20% 0 20%;
+		background-color: #5AD;
 		
 		-moz-box-sizing:border-box;
 		-webkit-box-sizing:border-box;
