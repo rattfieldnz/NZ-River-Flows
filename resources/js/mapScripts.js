@@ -4,6 +4,7 @@ var orangeMarker = 'resources/images/location-pin-orange.png';
 
 var rivers = [];
 
+// Creates 'river' object and adds object to 'rivers' array
 function river(title, lat, lng, marker, url, grade, river, region, /*lowerBound, upperBound, currentFlow*/){
 		this.title = title;
 		this.lat = lat;
@@ -16,6 +17,7 @@ function river(title, lat, lng, marker, url, grade, river, region, /*lowerBound,
 		rivers.push(this);
 }
 
+// RIVERS!!  (title, latitude, longitude, marker color, link to rivers.org, grade, river, region)
 var upperTaieri = new river("Upper Taieri", -45.649560, 170.276538, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/sutton-to-hindon', 4, 'Taieri', 'Otago');
 var lowerTaieri = new river("Lower Taieri", -45.792323, 170.309228, greenMarker, 'http://rivers.org.nz/nz/otago/taieri/taioma-to-outram', 3, 'Taieri', 'Otago');
 var leith = new river("Leith", -45.864321, 170.514365, redMarker, 'http://rivers.org.nz/nz/otago/leith-stream/leith', 3, 'Water of the Leith', 'Otago');
@@ -33,6 +35,7 @@ var lowerShotover = new river("Lower Shotover", -44.962026, 168.650360, greenMar
 var middleShotover = new river("Middle Shotover", -44.879175, 168.676419, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/macleods-to-skippers-bridge', 2, 'Shotover', 'Otago');
 var lowerWaipori = new river("Lower Waipori", -45.929381, 170.041661, redMarker, 'http://rivers.org.nz/nz/otago/waipori', 3, 'Waipori', 'Otago');
 
+// Sorts rivers into alphabetical order
 function compare(a,b) {
   if (a.title < b.title)
     return -1;
@@ -55,6 +58,7 @@ function initMap() {
 	
 	setMarkers(map);
 	
+	// Legend objects
 	var icons = {
 		flowing: {
 			name: 'Flowing',
@@ -70,6 +74,7 @@ function initMap() {
 		}
 	};
 	
+	// Will zoom into geolocation if position permisiion given
 	if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
@@ -80,6 +85,7 @@ function initMap() {
 		});
 	}
 	
+	// Creates legend
 	var legend = document.getElementById('legend');
         for (var key in icons) {
           var type = icons[key];
@@ -93,6 +99,7 @@ function initMap() {
         map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
 }
 
+// Zooms into position
 function zoom(pos, fromSearch){
 	map.setCenter(pos)
 	if(fromSearch){
