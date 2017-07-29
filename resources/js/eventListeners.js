@@ -63,9 +63,11 @@ function printBoxes(boxes){
 	checkArray = [];
 }
 
+var searchValueX = '';
 // Re-renders list depending on search value
 function searchList(field) {
 	clearList();
+	searchValueX = field.value.toLowerCase();
 	
 	for(var i = 0; i < rivers.length; i++){
 		var searchValue = field.value.toLowerCase();
@@ -120,6 +122,16 @@ function renderRiverList() {
 
 // Adds items to list - includes event listeners for li items
 function addItemToList(river, grade, pos, linkTo){
+	
+	var riverX = '';
+	for (var i = 0; i < rivers.length; i++){
+		riverX = rivers[i];
+		if((checkArray.indexOf(riverX.grade.toString()) >= 0) 
+			&& ((riverX.title.toLowerCase().indexOf(searchValueX) != -1) 
+			|| (riverX.river.toLowerCase().indexOf(searchValueX) != -1))){
+			console.log(riverX.title);
+		}
+	}
 	
 	var list = document.getElementById('riverList');
 	
