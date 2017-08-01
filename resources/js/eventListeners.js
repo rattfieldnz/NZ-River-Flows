@@ -102,13 +102,12 @@ function renderRiverList() {
 
 // Adds items to list - includes event listeners for li items
 function addItemToList(){
+	
+	var list = document.getElementById('riverList');
 
 	for(var i = 0; i < rivers.length; i++){
 		var river = rivers[i];
-		if((checkArray.indexOf(river.grade) >= 0) && (river.title.toLowerCase().indexOf(globalSearchValue) >= 0)){
-			console.log(river.title);
-			
-			var list = document.getElementById('riverList');
+		if((checkArray.indexOf(river.grade) >= 0) && ((river.title.toLowerCase().indexOf(globalSearchValue) >= 0) || (river.river.toLowerCase().indexOf(globalSearchValue) >= 0))){
 	
 			var item = document.createElement('li');
 			item.innerText = river.title;
@@ -129,20 +128,24 @@ function addItemToList(){
 			
 			var content = "<h4>" + river.title + "</h4>";
 				content += "<p>Grade " + river.grade + "</p>";
-				
+			
 			var pos = {
 				lat: river.lat,
 				lng: river.lng
 			};
 			
-			item.addEventListener('click', function(){
-				openInfoWindow(content, pos, true);
-				zoom(pos, true);
-			});
+			item.addEventListener('click', function(content, pos){
+				return function(){
+					openInfoWindow(content, pos, true);
+					zoom(pos, true);
+				}
+			}('<h4>' + river.title + '</h4><p>Grade ' + river.grade + '</p>', {lat: river.lat, lng: river.lng}));
 			
-			item.addEventListener('mouseover', function(){
-				openInfoWindow(content, pos, false);
-			});
+			item.addEventListener('mouseover', function(content, pos){
+				return function(){
+					openInfoWindow(content, pos, false);
+				}
+			}('<h4>' + river.title + '</h4><p>Grade ' + river.grade + '</p>', {lat: river.lat, lng: river.lng}));
 			
 			linkIcon.addEventListener('click', function(){
 				window.location.href = river.url;
