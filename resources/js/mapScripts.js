@@ -75,8 +75,6 @@ function initMap() {
 	
 	map.setOptions(opt);
 	
-	//setMarkers(map);
-	
 	// Legend objects
 	var icons = {
 		flowing: {
@@ -105,7 +103,7 @@ function initMap() {
 	}
 	
 	// Creates legend
-	/*var legend = document.getElementById('legend');
+	var legend = document.getElementById('legend');
         for (var key in icons) {
           var type = icons[key];
           var name = type.name;
@@ -115,7 +113,7 @@ function initMap() {
           legend.appendChild(div);
         }
 
-        map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);*/
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
 }
 
 // Zooms into position
@@ -128,54 +126,7 @@ function zoom(pos, fromSearch){
 	}
 }
 		
-// Add Interactive River Markers to Map
-function setMarkers(map){
-	
-	var gZIndex = 50;
-	var rZIndex = 0;
-	
-	var shape = {
-		coords: [1, 1, 1, 20, 18, 20, 18, 1],
-		type: 'poly'
-	};
-			
-	for(var i = 0; i < rivers.length; i++){
-		
-		// places markers
-		var river = rivers[i];
-		var zIndex = 0;
-		
-		if(river.marker == "greenMarker"){
-			zIndex = gZIndex;
-			gZIndex++;
-		} else {
-			zIndex = rZIndex;
-			rZIndex++;
-		}
-		
-		var marker = new google.maps.Marker({	
-			position: {lat: river.lat, lng: river.lng},
-			map: map,
-			icon: river.marker,
-			shape: shape,
-			zIndex: zIndex,
-			url: river.url,
-		});
-		
-		// Opens marker tooltip on mouseover
-		var content = "<h4>" + river.title + "</h4>";
-		content += "<p>Grade " + river.grade + "</p>";
-		
-		var infowindow = new google.maps.InfoWindow();
-		google.maps.event.addListener(marker, 'mouseover', (function(marker ,content ,infowindow){ 
-			return function() {
-				var zIndex = marker.getZIndex();
-				marker.setZIndex(google.maps.Marker.MAX_ZINDEX + 1);
-				addInfoWindow(marker, content, zIndex);
-			};
-		})(marker, content, infowindow));
-	}
-}
+
 
 function addInfoWindow(marker, content, zIndex){
 	
