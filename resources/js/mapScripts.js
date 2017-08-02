@@ -75,7 +75,7 @@ function initMap() {
 	
 	map.setOptions(opt);
 	
-	setMarkers(map);
+	//setMarkers(map);
 	
 	// Legend objects
 	var icons = {
@@ -105,7 +105,7 @@ function initMap() {
 	}
 	
 	// Creates legend
-	var legend = document.getElementById('legend');
+	/*var legend = document.getElementById('legend');
         for (var key in icons) {
           var type = icons[key];
           var name = type.name;
@@ -115,7 +115,7 @@ function initMap() {
           legend.appendChild(div);
         }
 
-        map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);
+        map.controls[google.maps.ControlPosition.LEFT_TOP].push(legend);*/
 }
 
 // Zooms into position
