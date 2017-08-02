@@ -7,7 +7,7 @@
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta content="utf-8" http-equiv="encoding">
 	
-	<title>River Flow New Zealand</title>
+	<title>New Zealand River Flows</title>
 	
 	<!--Embedding fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
@@ -16,8 +16,9 @@
 	<link rel="stylesheet" type="text/css" href="resources/css/reset.min.css">
 	<link rel="stylesheet" type="text/css" href="resources/css/style.css">
 	
-	<!--Map Scripts-->
+	<!--Scripts-->
 	<script src="resources/js/mapScripts.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
 </head>
 
@@ -25,7 +26,7 @@
 	
 	<!--Creates header-->
 	<header>
-		<h1 id="titlePage">NZ River Flows</h1>
+		<h1 id="titlePage">NZ River Flows - Alpha</h1>
 		<svg version="1.1" id="flowIcon" class="flowIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 365.447 365.447" style="enable-background:new 0 0 365.447 365.447;" xml:space="preserve"><g><g><path d="M306.069,189.427H7.5c-4.143,0-7.5-3.358-7.5-7.5s3.357-7.5,7.5-7.5h297.119c0.469-0.092,0.954-0.14,1.45-0.14 c24.47,0,44.378-19.908,44.378-44.378S330.539,85.53,306.069,85.53s-44.378,19.908-44.378,44.378c0,4.142-3.357,7.5-7.5,7.5 s-7.5-3.358-7.5-7.5c0-32.741,26.637-59.378,59.378-59.378s59.378,26.637,59.378,59.378c0,32.224-25.801,58.535-57.829,59.358 C307.118,189.372,306.601,189.427,306.069,189.427z"/></g><g><path d="M152.283,137.479H7.5c-4.143,0-7.5-3.358-7.5-7.5s3.357-7.5,7.5-7.5h143.333c0.469-0.092,0.954-0.14,1.45-0.14 c24.47,0,44.378-19.908,44.378-44.378s-19.908-44.378-44.378-44.378c-24.471,0-44.379,19.908-44.379,44.378 c0,4.142-3.357,7.5-7.5,7.5s-7.5-3.358-7.5-7.5c0-32.741,26.638-59.378,59.379-59.378s59.378,26.637,59.378,59.378 c0,32.224-25.801,58.535-57.829,59.358C153.332,137.423,152.814,137.479,152.283,137.479z"/></g><g><path d="M244.186,346.866c-32.741,0-59.379-26.637-59.379-59.378c0-4.142,3.357-7.5,7.5-7.5s7.5,3.358,7.5,7.5 c0,24.47,19.908,44.378,44.379,44.378c24.47,0,44.378-19.908,44.378-44.378s-19.908-44.378-44.378-44.378H7.5 c-4.143,0-7.5-3.358-7.5-7.5s3.357-7.5,7.5-7.5h236.686c32.741,0,59.378,26.637,59.378,59.378S276.927,346.866,244.186,346.866z"/></g></g></svg>
 		<input type="text" placeholder="Search" id="item" onkeyup="searchList(this)">
 		<ul id="searchPrompt"></ul>
@@ -33,12 +34,20 @@
 			<svg version="1.1" id="searchIcon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 446.25 446.25" style="enable-background:new 0 0 365.447 365.447;" xml:space="preserve"><g><g id="search"><path class="fill" d="M318.75,280.5h-20.4l-7.649-7.65c25.5-28.05,40.8-66.3,40.8-107.1C331.5,73.95,257.55,0,165.75,0S0,73.95,0,165.75 S73.95,331.5,165.75,331.5c40.8,0,79.05-15.3,107.1-40.8l7.65,7.649v20.4L408,446.25L446.25,408L318.75,280.5z M165.75,280.5 C102,280.5,51,229.5,51,165.75S102,51,165.75,51S280.5,102,280.5,165.75S229.5,280.5,165.75,280.5z"/></g></svg>
 		</button>
 	</header>
-
+	
 	<!--Creates Interactive Map with Rivers Marked-->
 	<div id="container1">
 	<div id="container2">
 		<div id="mapContainer">
+			<div id="floatingPanel">
+				<input type="checkbox" class="gradeBox" value="1" id="1" checked>  Grade 1<br>
+				<input type="checkbox" class="gradeBox" value="2" id="2" checked>  Grade 2<br>
+				<input type="checkbox" class="gradeBox" value="3" id="3" checked>  Grade 3<br>
+				<input type="checkbox" class="gradeBox" value="4" id="4" checked>  Grade 4<br>
+				<input type="checkbox" class="gradeBox" value="5" id="5" checked>  Grade 5<br>
+			</div>
 			<div id="map">NZ River Flow Map</div>
+			<div id="legend"></div>
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqC6_sJ4AVFbyXAfXBLc9dcBzHqvqPPTk&callback=initMap"></script>
 			
 			<nav>
@@ -49,6 +58,8 @@
 		</div>
 	
 	<footer>
+		
+		<div class="above">
 		<ul class="horizontalList">
 			
 			<ul class="verticalList">
@@ -65,14 +76,13 @@
 				<li>(+64)27 211 8041</li>
 			</ul>
 			
-			<ul class="verticalList">
-				<li>Permissions</li>
-				<li>Hello world</li>
-			</ul>
-			
 		</ul>
+		</div>
+		
+		<div class="below">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a>, <a href="http://www.flaticon.com/authors/google" title="Google">Google</a> and <a href="http://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+		<div class="bottom">Map markers made using <a href="https://icons8.com/icon/7880/Marker-Filled">Marker filled icon credits</a></div>
+		
 	</footer>
-	</div></div>
 	
 	<!--Event Listeners-->
 	<script src="resources/js/eventListeners.js"></script>

@@ -14,13 +14,21 @@
 		left: 0px;
 		right: -15px;
 		overflow: auto;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 
-	html, body, footer {
+	html, body {
         height: 100%;
 		background-color: #d1e5e1;
         margin: 0;
         padding: 0;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
      }
 	 
 	.noFill {
@@ -42,23 +50,29 @@
 		padding: 15px;
 		top: 0;
 		left: 0;
-		z-index: 5;
+		z-index: 6;
 		background: #07889b;
 		box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	header h1 {
-		width: 250px;
 		float: left;
 		color: #fff;
 		font-weight: 400;
 		text-indent: 18px;
-		padding: 5px 0 0 0;
+		padding: 5px 20px 0 0;
 		cursor: pointer;
 		
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	header .flowIcon {
@@ -66,6 +80,10 @@
 		fill: #fff;
 		padding: 0 6px 0 0;
 		cursor: pointer;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	header input {
@@ -87,6 +105,10 @@
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	header input::-webkit-input-placeholder {
@@ -122,6 +144,10 @@
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	header button svg {
@@ -141,19 +167,78 @@
 		height: 100%;
 		width: 100%;
 		overflow: hidden;
+		position: relative;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+	
+	#floatingPanel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        padding-top: 60px;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+		text-shadow:
+			-1px -1px 0 #fff,
+			1px -1px 0 #fff,
+			-1px 1px 0 #fff,
+			1px 1px 0 #fff;
+		
+        line-height: 30px;
+		margin: 40px 0 0 37%;
+    }
+	
+	a[href^="http://maps.google.com/maps"]{display:none !important}
+	a[href^="https://maps.google.com/maps"]{display:none !important}
+
+	.gmnoprint a, .gmnoprint span, .gm-style-cc {
+		display:none;
+	}
+	.gmnoprint div {
+		background:#fff !important;
 	}
 
 	#mapContainer #map {
         height: 100%;
 		width: 69%;
 		float:left;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
+    }
+	
+	#legend {
+		font-family: 'Roboto', sans-serif;
+		font-size: 15px;
+		color: #333;
+		text-shadow:
+			-1px -1px 0 #fff,
+			1px -1px 0 #fff,
+			-1px 1px 0 #fff,
+			1px 1px 0 #fff;
+		
+        padding: 10px;
+        margin: 50px 10px 10px 10px;
+    }
+	
+    #legend img {
+        vertical-align: middle;
     }
 	 
 	#mapContainer #riverList {
 		 height: 100%;
 		 width: 31%;
 		 float: right;
-		 padding: 100px 20px 0 20px;
+		 padding: 130px 20px 0 20px;
+		 
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	 
 	#mapContainer nav #riverList {
@@ -163,6 +248,11 @@
 		overflow-y: scroll;
 		position: absolute;
 		right: -17px;
+		bottom: 20px;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	 
 	#mapContainer #riverList li {
@@ -174,6 +264,10 @@
 		border-radius: 5px;
 		position: relative;
 		box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.1);
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	#mapContainer #riverList li .buttons {
@@ -182,6 +276,10 @@
 		position: absolute;
 		top: 0;
 		right: 0;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
 	#mapContainer #riverList li .buttons button {
@@ -201,6 +299,24 @@
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+	
+	#mapContainer #riverList li .buttons button svg .fill {
+		-webkit-transition: fill 0.2s ease;
+		-moz-transition: fill 0.2s ease;
+		transition: fill 0.2s ease;
+	}
+	
+	#mapContainer #riverList li .buttons button.remove svg .fill {
+		fill: #c0cecb;
+	}
+	
+	#mapContainer #riverList li .buttons button.remove:hover svg .fill {
+		fill: #e85656;
 	}
 	
 	footer {
@@ -208,23 +324,51 @@
 		height: 150px;
 		position: absolute;
 		z-index: 5;
-		padding: 0 10% 0 10%;
+		padding: 10px 20% 0 20%;
+		background-color: #5AD;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
-	footer ul .horizontalList {
+	footer .above ul .horizontalList {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
 		overflow: hidden;
+		position: absolute;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
-	footer ul .verticalList {
+	footer .above ul .verticalList {
 		float: left;
 		font-size: 12px;
-		padding:2% 12% 0 12%;
+		padding:2% 5% 0 0;
+		
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;
 	}
 	
-	footer ul a {
+	footer .above ul a {
 		color: #blue;
 		text-decoration: none;
 	}
+	
+	footer .below {
+		font-size: 12px;
+		position: absolute;
+		float: left;
+		padding: 100px 0 10px 0;
+	}
+	footer .bottom {
+		font-size: 12px;
+		position: absolute;
+		float: left;
+		padding: 116px 0 10px 0;
+	}
+	
