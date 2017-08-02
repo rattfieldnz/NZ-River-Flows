@@ -34,6 +34,17 @@ var nevisRiver = new river("Nevis River", -45.079093, 169.023634, redMarker, 'ht
 var lowerShotover = new river("Lower Shotover", -44.962026, 168.650360, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/deep-creek-to-edith-cavell-bridge', 4, 'Shotover', 'Otago');
 var middleShotover = new river("Middle Shotover", -44.879175, 168.676419, greenMarker, 'http://rivers.org.nz/nz/otago/shotover/macleods-to-skippers-bridge', 2, 'Shotover', 'Otago');
 var lowerWaipori = new river("Lower Waipori", -45.929381, 170.041661, redMarker, 'http://rivers.org.nz/nz/otago/waipori', 3, 'Waipori', 'Otago');
+var ashleyGorge = new river("Ashley Gorge", -43.205283, 172.141872, redMarker, 'http://rivers.org.nz/nz/canterbury/ashley/ashley-gorge', 3, 'Ashley', 'Canterbury');
+var leesValley = new river("Lees Valley to Mid Bridge", -43.153061, 172.203833, redMarker, 'http://rivers.org.nz/nz/canterbury/ashley/lees-valley-to-middle-bridge', 2, 'Ashley', 'Cantebury');
+var hawardenGap = new river("Hawarden Gap", -42.790130, 172.533115, greenMarker, 'http://rivers.org.nz/nz/canterbury/hurunui/hawarden-gap', 2, 'Hurinui', 'Cantebury');
+var maoriGully = new river("Maori Gully", -42.801585, 172.508586, greenMarker, 'http://rivers.org.nz/nz/canterbury/hurunui/maori-gully', 3, 'Hurinui', 'Cantebury');
+var rangitataGorge = new river("Rangitata Gorge", -43.740942, 171.185016, greenMarker, 'http://rivers.org.nz/nz/canterbury/rangitata/rangitata-gorge', 4, 'Rangitata', 'Canterbury');
+var lowerRangitata = new river("Lower Rangitata", -43.814450, 171.257814, greenMarker, 'http://rivers.org.nz/node/545', 2, 'Rangitata', 'Cantebury');
+var grebe = new river("Grebe", -45.595833, 167.365833, redMarker, 'http://rivers.org.nz/nz/otago/grebe/grebe-river', 3, 'Grebe', 'Southland');
+var lowerMararoa = new river("Lower Mararoa", -45.329976, 168.150213, redMarker, 'http://rivers.org.nz/nz/southland/mararoa/south-mavora-lakes-to-kiwi-burn', 3, 'Mararoa', 'Southland');
+var tekapo = new river("Tekapo Whitewater Course", -44.019734, 170.468268, orangeMarker, 'http://rivers.org.nz/nz/canterbury/tekapo/tekapo-whitewater-course', 3, 'Tekapo', 'Cantebury');
+var lowerMatax = new river("Lower Matakitaki", -41.842487, 172.324616, greenMarker, 'http://rivers.org.nz/nz/tasman/lower-matakitaki', 4, 'Matakitaki', 'Tasman');
+var midMatax = new river('Middle Matakitaki', -41.900542, 172.318371, greenMarker, 'http://rivers.org.nz/nz/tasman/matakitaki/middle-matakitaki', 2, 'Matakitaki', 'Tasman');
 
 // Sorts rivers into alphabetical order
 function compare(a,b) {

@@ -21,15 +21,25 @@ document.getElementById('item').addEventListener('keypress', function (e) {
 
 // Reload page if title is clicked
 document.getElementById('titlePage').addEventListener('click', function(){
-	location.reload();
-	document.getElementById('item').value = "";
+	reloadPage();
 });
 
 // Reload page if flow icon is clicked
 document.getElementById('flowIcon').addEventListener('click', function(){
+	reloadPage();
+});
+
+// Reloads page and resets inputs
+function reloadPage(){
 	location.reload();
 	document.getElementById('item').value = "";
-});
+	var boxes = document.getElementsByClassName('gradeBox');
+	for(var i = 0; i < boxes.length; i++){
+		if(!boxes[i].checked){
+			boxes[i].checked = true;
+		}
+	}
+}
 
 checkBoxes();
 var flag = true;
