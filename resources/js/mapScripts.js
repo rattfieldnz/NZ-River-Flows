@@ -60,12 +60,20 @@ rivers.sort(compare);
 // Define Map Properties
 var map;
 function initMap() {
+	
+	var opt = {
+		minZoom: 6,
+		maxZoom: 12
+	};
+	
 	map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 6,
 		center: {lat: -40.834541, lng: 173.473535},
 		draggableCursor: 'auto',
-		streetViewControl: false
+		streetViewControl: false,
 	});
+	
+	map.setOptions(opt);
 	
 	setMarkers(map);
 	
@@ -114,9 +122,9 @@ function initMap() {
 function zoom(pos, fromSearch){
 	map.setCenter(pos)
 	if(fromSearch){
-		map.setZoom(12);
+		map.setZoom(10);
 	} else {
-		map.setZoom(8);
+		map.setZoom(9);
 	}
 }
 		

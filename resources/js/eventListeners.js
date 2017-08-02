@@ -114,13 +114,8 @@ function renderRiverList() {
 function addItemToList(){
 	
 	var list = document.getElementById('riverList');
+	
 	var map = document.getElementById('map');
-	var gZIndex = 50;
-	var rZIndex = 0;
-	var shape = {
-		coords: [1, 1, 1, 20, 18, 20, 18, 1],
-		type: 'poly'
-	};
 
 	for(var i = 0; i < rivers.length; i++){
 		var river = rivers[i];
@@ -175,6 +170,7 @@ function addItemToList(){
 		}
 	}
 	
+	// ERROR! Refers to map outside of initializatioin - error currently logging in console
 	var marker = new google.maps.Marker({
 		position: {lat: -40.834541, lng: 173.473535},
 		map: map
